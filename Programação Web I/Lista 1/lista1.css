@@ -1,0 +1,25 @@
+.wraper{
+    display: flex;
+    gap: 20px;
+    width: 500px;
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
+}
+
+.questao{
+    scroll-snap-align: center;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    flex-shrink: 0;
+    width: 500px;
+    background-color: lightgray;
+    border-radius: 10px;
+    text-align: center;
+}
+
+header{
+    text-align: center;
+}
+footer{
+    text-align: center;
+}
