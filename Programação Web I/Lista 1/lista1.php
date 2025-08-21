@@ -11,7 +11,7 @@
     <header>
         <h2> Portfólio para Acesso às listas de Programação Web </h2>
     </header>
-
+    <script src="lista1.js"></script>
     <aside>
         
     </aside>
@@ -37,7 +37,7 @@
                     <input type="number" name="peso2" min="0" max="10"><br>
                 </fieldset>
             </form>
-            <button form="form1" type="submit" class="button" onclick="SendData"> Enviar </button>
+            <button form="form1" type="submit" class="button" onclick="mostrarQ1()"> Enviar </button>
         </div>
         <!-- Questão 2: Cálculo de quantos litros de gasolina irá gastar, pegar dados de:
          - distância em km
@@ -52,15 +52,15 @@
             <form action="lista1.php" method="get" id="form2">
                 <fieldset>
                     <legend> Questão 2 - Lista 1 </legend>
-                    <label for="distancia" class="alinha"> Distância da viagem (km): </label>
-                    <input type="number" name="distancia" autofocus min="0" step=".1"><br>
-                    <label for="gasto"> Consumo do carro (em km por litro): </label>
-                    <input type="number" name="gasto" min="0"><br>
-                    <label for="valor"> Valor da gasolina no posto: </label>
-                    <input type="number" name="valor" min="0" step=".001"><br>
+                    <label for="distancia"> Qual a distância da viagem em km: </label>
+                    <input type="number" name="distancia"><br>
+                    <label for="gasto"> Qual o gasto em litro por km do carro: </label>
+                    <input type="number" name="gasto"><br>
+                    <label for="valor"> E qual o valor da gasolina neste posto: </label>
+                    <input type="number" name="valor"><br>
                 </fieldset>
             </form>
-            <button form="form2" type="submit" class="button" onclick="SendData"> Enviar </button>
+            <button form="form2" type="submit" class="button" onclick="mostrarQ2()"> Enviar </button>
         </div>
         <!-- Questão 3: Script para auxiliar funcionários de venda (método GET) para ver:
          - valor do desconto obtido pelo cliente (10% da compra)
@@ -209,7 +209,29 @@
     </div>
 
     <div class="amostra">
+      <div id="questao1">
       <h3> Resultado do Formulário </h3>
+      <?php
+        $aluno = $_POST["aluno"];
+        $nota1 = $_POST["nota1"];
+        $peso1 = $_POST["peso1"];
+        $nota2 = $_POST["nota2"];
+        $peso2 = $_POST["peso2"];
+
+        $media = ($nota1 * $peso1 + $nota2 * $peso2) / ($peso1 + $peso2);
+
+        $mediaFormatada = number_format($media, 1, ",", ".");
+        echo "<p> Resultados do processamento das notas do aluno: <br>  
+        Nome do aluno = <span> $aluno </span> <br>
+        Média do aluno = <span> $mediaFormatada </span>
+        </p>";
+      ?>
+      </div>
+      <div id="questao2">
+        <?php
+        echo "<p> Teste </p>";
+        ?>
+      </div>
     </div>
 
 
