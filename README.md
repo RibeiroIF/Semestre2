@@ -5,5 +5,7 @@
 <ul>
   <li> Programação Web I - Prof Herval Daminelli </li>
   <li> Programação Orientada a Objetos I - Prof Marcos Pisching </li>
-  <li> </li>
+  <li> Banco de Dados II - Prof Ana Luiza Scharf </li>
 </ul>
+
+<h6> Este repositório permanecerá aberto para acesso às atividades </h6>
