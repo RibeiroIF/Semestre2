@@ -1,0 +1,89 @@
+-- CREATE DATABASE atividade02;
+
+USE atividade02;
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS ALUNOS;
+DROP TABLE IF EXISTS CURSOS;
+DROP TABLE IF EXISTS DISCIPLINAS;
+DROP TABLE IF EXISTS MATRICULAS;
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+CREATE TABLE ALUNOS(
+ID_aluno INT NOT NULL,
+Nome_aluno VARCHAR (512),
+Email VARCHAR (100),
+Telefone VARCHAR (20),
+PRIMARY KEY (ID_aluno)
+) Engine InnoDB;
+
+CREATE TABLE CURSOS(
+ID_curso INT NOT NULL,
+Nome_curso VARCHAR (256),
+Descricao_curso TEXT,
+Tipo_curso INT NOT NULL,
+PRIMARY KEY (ID_curso)
+) Engine InnoDB;
+
+CREATE TABLE DISCIPLINAS(
+ID_disciplina INT NOT NULL,
+Nome_disciplina VARCHAR(256),
+ID_curso INT NOT NULL,
+Fase_disciplina INT NOT NULL,
+PRIMARY KEY (ID_disciplina),
+FOREIGN KEY (ID_curso) REFERENCES CURSOS (ID_curso) ON DELETE CASCADE
+) Engine InnoDB;
+
+CREATE TABLE MATRICULAS(
+ID_matricula INT NOT NULL,
+ID_aluno INT NOT NULL,
+ID_curso INT NOT NULL,
+ID_disciplina INT NOT NULL,
+PRIMARY KEY (ID_matricula),
+FOREIGN KEY (ID_aluno) REFERENCES ALUNOS (ID_aluno) ON DELETE CASCADE,
+FOREIGN KEY (ID_curso) REFERENCES CURSOS (ID_curso) ON DELETE CASCADE,
+FOREIGN KEY (ID_disciplina) REFERENCES DISCIPLINAS (ID_disciplina) ON DELETE CASCADE
+) Engine InnoDB;
+
+INSERT INTO ALUNOS (ID_aluno, Nome_aluno, Email, Telefone) VALUES 
+("111111", "Gabriel", "Gabriel@gmail.com", "48956748331"),
+("222222", "Fulano", "Fulano@gmail.com", "48956748331"),
+("333333", "Ciclano", "Ciclano@gmail.com", "48956748331"),
+("444444", "Beltrano", "Beltrano@gmail.com", "48956748331"), 
+("555555", "Clara", "Clara@gmail.com", "48956748331");
+
+INSERT INTO CURSOS (ID_curso, Nome_curso, Descricao_curso, Tipo_curso) VALUES 
+("1111", "Medicina", "Curso mais concorrido", "1"),
+("2222", "Direito", "Segundo curso mais concorrido", "2"),
+("3333", "Engenharia Civil", "Focado em cálculo", "3"),
+("4444", "Ciências da Computação", "Voltado à tecnologia", "4"),
+("5555", "Economia", "Curso focado em capital", "5");
+
+INSERT INTO DISCIPLINAS (ID_disciplina, Nome_disciplina, ID_curso, Fase_disciplina) VALUES 
+("111", "Anatomia", "1111", "1"),
+("222", "Direito Penal", "2222", "1"),
+("333", "Cálculo 1", "3333", "1"),
+("444", "Fundamentos da Informática", "4444", "1"),
+("555", "Ética Econômica", "5555", "1");
+
+INSERT INTO MATRICULAS (ID_matricula, ID_aluno, ID_curso, ID_disciplina) VALUES
+("11", "111111", "1111", "111"),
+("22", "222222", "2222", "222"),
+("33", "333333", "3333", "333"),
+("44", "444444", "4444", "444"),
+("55", "555555", "5555", "555");
+
+-- 1)REMOVA LINHAS DA TABELA MATRÍCULA
+DELETE FROM MATRICULAS;
+-- 2)REMOVA LINHAS DA TABELA DISCIPLINAS QUE SEJAM REFERENCIADAS NA TABELA MATRICULAS
+DELETE FROM DISCIPLINAS WHERE ID_disciplina IN (SELECT ID_disciplina FROM MATRICULAS);
+-- 3)REMOVA LINHAS DA TABELA ALUNOS QUE SEJAM REFERENCIADAS NA TABELA MATRICULAS
+DELETE FROM ALUNOS WHERE ID_aluno IN (SELECT ID_aluno FROM MATRICULAS);
+-- 4)REMOVA LINHAS DA TABELA CURSOS QUE SEJAM REFERENCIADAS NA TABELA DISCIPLINAS
+DELETE FROM CURSOS WHERE ID_curso IN (SELECT ID_curso FROM DISCIPLINAS);
+-- 5)ALTERE AS TABELAS PARA QUE OS RELACIONAMENTOS TENHAM RESTRIÇÕES DE INTEGRIDADE REFERENCIAL DO TIPO ON DELETE CASCADE
+-- FEITO ACIMA ADICIONANDO "ON DELETE CASCADE"
+-- 6)REPITA OS TESTES DE REMOÇÃO DE DADOS
+-- FEITO ACIMA RODANDO O BANCO DE DADOS NOVAMENTE

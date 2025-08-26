@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+html{
+  height: 100%;
+}
+body{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: "Mozilla Headline";
+  background-color: rgb(74, 71, 160);
+}
+.wraper{
+    margin: auto;
+    display: flex;
+    gap: 20px;
+    width: 550px;
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
+    box-shadow: 9px 9px 9px rgb(78, 28, 28);
+    scroll-behavior: smooth;
+    scroll-marker-group: after;
+}
+
+.wraper::-webkit-scrollbar{
+  display: none;
+}
+.wraper::scroll-marker-group{
+  display: flex;
+  justify-content: center;
+  gap: .5em;
+}
+
+.questao::scroll-marker{
+  content: " ";
+  height: 1em;
+  width: 1em;
+  background-color: rgb(202, 205, 50);
+  border-radius: 50%;
+}
+
+.questao::scroll-marker:target-current{
+  background-color: rgb(20, 20, 168);
+}
+
+.questao{
+    scroll-snap-align: center;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    flex-shrink: 0;
+    width: 550px;
+    background-color: lightgray;
+    border-radius: 10px;
+    text-align: center;
+    align-content: center;
+    box-shadow: 9px 9px 9px rgb(78, 28, 28);
+}
+
+header{
+    background-color: rgb(202, 205, 50);
+    text-align: center;
+    border-radius: 10px;
+    height: 100px;
+    align-content: center;
+    font-size: 26px;
+}
+footer{
+    margin-top: auto;
+    background-color: rgb(202, 205, 50);
+    text-align: center;
+}
+
+fieldset{
+  border: 2px solid;
+}
+
+#cabecalho{
+  text-align: center;
+  color: white;
+  font-size: 28px;
+  text-shadow: 2px 1px black;
+}
+
+label.alinha{
+  display: inline-block;
+  text-align: right;
+  width: 205px;
+}
+
+input[type = "number"]{
+  width: 50px;
+}
+
+span{
+  font-weight: bold;
+}
+
+div.amostra{
+  border: 1.5px solid;
+  color: black;
+  background-color: lightgray;
+  text-align: center;
+  margin-top: 3%;
+  margin-left: 36%;
+  margin-right: 36%;
+  border-radius: 10px;
+  box-shadow: 9px 9px 9px rgb(78, 28, 28);;
+}
+
+button{
+  margin-top: 2%;
+  font-size: 20px;
+  font-family: "Mozilla Headline";
+}
