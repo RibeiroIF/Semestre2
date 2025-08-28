@@ -361,6 +361,9 @@
           if(isset($_POST['cartao'])){
             $mensagem_sorteio = "<p> <span> Parabéns, você está apto a participar do sorteio!!! </span> </p>";
           }
+          else{
+            $mensagem_sorteio = "<p> <span> Desculpe, você não se qualificou para participar do sorteio!!! </span> </p>";
+          }
 
           $valor_compra_7_formatado = number_format($valor_compra_7, 2, ",", ".");
           $valor_final_7_formatado = number_format($valor_final_7, 2, ",", ".");
@@ -381,34 +384,44 @@
           $valor_desconto_cartao = $valor_compra_8 * DESCONTO_CARTAO;
           $valor_pre_cartao_8 = 0;
           $valor_final_8 = 0;
+          $resultado_desconto = 0;
           if(!isset($_POST['idade'])){
             die("<p> <span> Erro fatal: a idade deve ser fornecida. Aplicação encerrada </span> </p>");
           }
           if($_POST['idade'] == 'abaixo'){
             $valor_pre_cartao_8 = $valor_compra_8;
-            if($_POST['fidelidade']){
+            $resultado_desconto = 0;
+            if(isset($_POST['fidelidade'])){
               $valor_final_8 = $valor_pre_cartao_8 - $valor_desconto_cartao;
+              $resultado_desconto = 5;
             }
             else{
               $valor_final_8 = $valor_pre_cartao_8;
+              $resultado_desconto = 0;
             }
           }
           else if($_POST['idade'] == 'entre'){
             $valor_pre_cartao_8 = $valor_compra_8 - $valor_desconto_entre;
-            if($_POST['fidelidade']){
+            $resultado_desconto = 5;
+            if(isset($_POST['fidelidade'])){
               $valor_final_8 = $valor_pre_cartao_8 - $valor_desconto_cartao;
+              $resultado_desconto = 10;
             }
             else{
               $valor_final_8 = $valor_pre_cartao_8;
+              $resultado_desconto = 5;
             }
           }
           else if($_POST['idade'] == 'acima'){
             $valor_pre_cartao_8 = $valor_compra_8 - $valor_desconto_acima;
-            if($_POST['fidelidade']){
+            $resultado_desconto = 7;
+            if(isset($_POST['fidelidade'])){
               $valor_final_8 = $valor_pre_cartao_8 - $valor_desconto_cartao;
+              $resultado_desconto = 12;
             }
             else{
               $valor_final_8 = $valor_pre_cartao_8;
+              $resultado_desconto = 7;
             }
           }
 
@@ -416,8 +429,9 @@
           $valor_final_8_formatado = number_format($valor_final_8, 2, ",", ".");
 
           echo "<p> <h3> Formulário 8: </h3>
-          Valor pré-cálculo = <span>R$ $valor_compra_8_formatado </span> <br>  
-          Valor pós-cálculo = <span>R$ $valor_final_8_formatado </span> <br>
+          Valor da venda pré-aplicação do desconto = <span>R$ $valor_compra_8_formatado </span> <br>  
+          Valor da venda pós-aplicação do desconto = <span>R$ $valor_final_8_formatado </span> <br>
+          Valor do desconto aplicado = <span>R$ $resultado_desconto% </span>
           </p>";
         }
         if (isset($_POST['submit_form9'])){
@@ -458,8 +472,8 @@
     </div>
 
     <footer>
-        <h2> Aluno: Gabriel Ribeiro de Souza </h2>
-        <h4> Whatsapp para contato: <a href="https://wa.me/5548996658244"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Ícone do Whats" style="width:28px;height:28px;"></a></h4>
+        <h3> Aluno: Gabriel Ribeiro de Souza <br>
+        Whatsapp para contato: <a href="https://wa.me/5548996658244"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Ícone do Whats" style="width:28px;height:28px;"></a> </h3>
     </footer>
 </body>
 </html>
