@@ -1,0 +1,29 @@
+-- CREATE DATABASE Atividade_EAD;
+USE Atividade_EAD;
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS CLIENTES;
+DROP TABLE IF EXISTS ORDEM_DE_SERVICO;
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+CREATE TABLE CLIENTES (
+ID_Cliente INT NOT NULL,
+Nome VARCHAR(20),
+Sobrenome VARCHAR(20),
+Rua_endereco VARCHAR(40),
+Numero_endereco INT,
+Bairro_endereco VARCHAR(40),
+Telefone_principal CHAR(14),
+PRIMARY KEY (ID_Cliente)
+) Engine InnoDB;
+
+CREATE TABLE ORDEM_DE_SERVICO (
+ID_Ordem INT NOT NULL,
+ID_Cliente INT NOT NULL,
+Data_ordem CHAR(10),
+Hora_ordem CHAR(5),
+PRIMARY KEY (ID_Ordem),
+FOREIGN KEY (ID_Cliente) REFERENCES CLIENTES (ID_cliente)
+) Engine InnoDB;
