@@ -272,6 +272,104 @@
     <div class="amostra">
       <div>
       <h3> Resultado do Formulário </h3>
+      <?php
+      if(isset($_POST['submit_form1'])){
+         //CÓDIGO PARA A QUESTÃO 1
+         $nota1 = $_POST['nota1'];
+         $nota2 = $_POST['nota2'];
+         $nota3 = $_POST['nota3'];
+
+         $vetorNotas = [$nota1, $nota2, $nota3];
+         $mediaNotas = array_sum($vetorNotas)/count($vetorNotas);
+         $mediaNotasFormatada = number_format($mediaNotas, 2, ",", ".");
+         echo "<p> <h3> Formulário 1 </h3>
+         Resultado do processamento da média das notas: <br>
+         Nota 1: <span> $nota1 </span> <br>
+         Nota 2: <span> $nota2 </span> <br>
+         Nota 3: <span> $nota3 </span> <br>
+         Média das notas: <span> $mediaNotasFormatada </span>
+         </p>";
+      }
+      if(isset($_POST['submit_form2'])){
+         //CÓDIGO PARA A QUESTÃO 2
+         $aluno1 = $_POST['nome1'];
+         $nota1 = $_POST['nota1'];
+         $aluno2 = $_POST['nome2'];
+         $nota2 = $_POST['nota2'];
+         $aluno3 = $_POST['nome3'];
+         $nota3 = $_POST['nota3'];
+
+         $vetorNotas = [$aluno1 => $nota1, $aluno2 => $nota2, $aluno3 => $nota3];
+
+         echo "<pre>";
+         print_r($vetorNotas);
+         echo "</pre>";
+
+         echo "<table>
+               <caption> Rendimento Semestral do Aluno de Programação Web I </caption>
+                  <tr>
+                     <th> Nome do aluno: </th>
+                     <th> Nota do aluno: </th>
+                  </tr>";
+
+            foreach($vetorNotas as $aluno => $nota){
+               echo "<tr>
+                        <td> $aluno </td>
+                        <td> $nota </td>
+                     </tr>";
+            }
+            echo "</table>";
+      }
+      if(isset($_POST['submit_form3'])){
+         //CÓDIGO PARA A QUESTÃO 3
+         $aluno1 = $_POST['nome1'];
+         $nota1 = $_POST['nota1'];
+         $aluno2 = $_POST['nome2'];
+         $nota2 = $_POST['nota2'];
+         $aluno3 = $_POST['nome3'];
+         $nota3 = $_POST['nota3'];
+
+         $vetorNotas = [$aluno1 => $nota1, $aluno2 => $nota2, $aluno3 => $nota3];
+         rsort($vetorNotas);
+
+         echo "<pre>";
+         print_r($vetorNotas);
+         echo "</pre>";
+
+         echo "<table>
+               <caption> Rendimento Semestral do Aluno de Programação Web I </caption>
+                  <tr>
+                     <th> Nome do aluno: </th>
+                     <th> Nota do aluno: </th>
+                  </tr>";
+
+            foreach($vetorNotas as $aluno => $nota){
+               echo "<tr>
+                        <td> $aluno </td>
+                        <td> $nota </td>
+                     </tr>";
+            }
+            echo "</table>";
+      }
+      if(isset($_POST['submit_form4'])){
+         //CÓDIGO PARA A QUESTÃO 4
+      }
+      if(isset($_POST['submit_form5'])){
+         //CÓDIGO PARA A QUESTÃO 5
+      }
+      if(isset($_POST['submit_form6'])){
+         //CÓDIGO PARA A QUESTÃO 6
+      }
+      if(isset($_POST['submit_form7'])){
+         //CÓDIGO PARA A QUESTÃO 7
+      }
+      if(isset($_POST['submit_form8'])){
+         //CÓDIGO PARA A QUESTÃO 8
+      }
+      if(isset($_POST['submit_form9'])){
+         //CÓDIGO PARA A QUESTÃO 9
+      }
+      ?>
       </div>
     </div>
 
