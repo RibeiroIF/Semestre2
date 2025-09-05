@@ -162,14 +162,14 @@
             </fieldset>
             <fieldset>
                <legend> Idade 2 </legend>
-               <label for="nome1"> Insira o seu nome: </label>
+               <label for="nome2"> Insira o seu nome: </label>
                <input type="text" name="nome2"><br><br>
                <label for="idade2"> Insira a sua idade: </label>
                <input type="number" name="idade2"><br>
             </fieldset>
             <fieldset>
                <legend> Idade 3 </legend>
-               <label for="nome1"> Insira o seu nome: </label>
+               <label for="nome3"> Insira o seu nome: </label>
                <input type="text" name="nome3"><br><br>
                <label for="idade3"> Insira a sua idade: </label>
                <input type="number" name="idade3"><br>
@@ -190,15 +190,15 @@
             </fieldset>
             <fieldset>
                <legend> Idade 2 </legend>
-               <label for="nome1"> Insira o seu nome: </label>
-               <input type="text" name="nome1"><br><br>
+               <label for="nome2"> Insira o seu nome: </label>
+               <input type="text" name="nome2"><br><br>
                <label for="idade2"> Insira a sua idade: </label>
                <input type="number" name="idade2"><br>
             </fieldset>
             <fieldset>
                <legend> Idade 3 </legend>
-               <label for="nome1"> Insira o seu nome: </label>
-               <input type="text" name="nome1"><br><br>
+               <label for="nome3"> Insira o seu nome: </label>
+               <input type="text" name="nome3"><br><br>
                <label for="idade3"> Insira a sua idade: </label>
                <input type="number" name="idade3"><br>
             </fieldset>
@@ -441,6 +441,33 @@
       }
       if(isset($_POST['submit_form7'])){
          //CÓDIGO PARA A QUESTÃO 7
+         $pessoa1 = $_POST['nome1'];
+         $idade1 = $_POST['idade1'];
+         $pessoa2 = $_POST['nome2'];
+         $idade2 = $_POST['idade2'];
+         $pessoa3 = $_POST['nome3'];
+         $idade3 = $_POST['idade3'];
+
+         $vetorIdades = [$pessoa1 => $idade1, $pessoa2 => $idade2, $pessoa3 => $idade3];
+         
+         krsort($vetorIdades);
+         
+         echo "<table>
+               <h4 style='margin-bottom: -7%;'> Formulário 6 </h4>
+               <caption> Elencamento da Idade dos Entrevistados </caption>
+               <br>
+                  <tr>
+                     <th> Nome do entrevistado: </th>
+                     <th> Idade do entrevistado: </th>
+                  </tr>";
+
+            foreach($vetorIdades as $pessoa => $idade){
+               echo "<tr>
+                        <td> $pessoa </td>
+                        <td> $idade </td>
+                     </tr>";
+            }
+            echo "</table>";
       }
       if(isset($_POST['submit_form8'])){
          //CÓDIGO PARA A QUESTÃO 8
