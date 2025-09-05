@@ -450,10 +450,10 @@
 
          $vetorIdades = [$pessoa1 => $idade1, $pessoa2 => $idade2, $pessoa3 => $idade3];
          
-         krsort($vetorIdades);
+         ksort($vetorIdades);
          
          echo "<table>
-               <h4 style='margin-bottom: -7%;'> Formulário 6 </h4>
+               <h4 style='margin-bottom: -7%;'> Formulário 7 </h4>
                <caption> Elencamento da Idade dos Entrevistados </caption>
                <br>
                   <tr>
