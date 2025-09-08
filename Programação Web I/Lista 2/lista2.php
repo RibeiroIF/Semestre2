@@ -162,14 +162,14 @@
             </fieldset>
             <fieldset>
                <legend> Idade 2 </legend>
-               <label for="nome2"> Insira o seu nome: </label>
+               <label for="nome1"> Insira o seu nome: </label>
                <input type="text" name="nome2"><br><br>
                <label for="idade2"> Insira a sua idade: </label>
                <input type="number" name="idade2"><br>
             </fieldset>
             <fieldset>
                <legend> Idade 3 </legend>
-               <label for="nome3"> Insira o seu nome: </label>
+               <label for="nome1"> Insira o seu nome: </label>
                <input type="text" name="nome3"><br><br>
                <label for="idade3"> Insira a sua idade: </label>
                <input type="number" name="idade3"><br>
@@ -214,17 +214,17 @@
                <label for="nome"> Qual o seu nome?: </label>
                <input type="text" name="nome"><br>
                <h4> Preencha seu carrinho (máximo 3 produtos): </h4>
-               <input type="checkbox" name="remedios[]" class="remedios" value="Dipirona" onclick="return limiteCompra2()">
+               <input type="checkbox" name="remedios[]" class="remedio" value="Dipirona" onclick="return limiteCompra2()">
                <label for="remedios[]"> Dipirona 1g </label>
-               <input type="checkbox" name="remedios[]" class="remedios" value="Predinsona" onclick="return limiteCompra2()">
+               <input type="checkbox" name="remedios[]" class="remedio" value="Prednisona" onclick="return limiteCompra2()">
                <label for="remedios[]"> Prednisona </label>
-               <input type="checkbox" name="remedios[]" class="remedios" value="Malvatricin" onclick="return limiteCompra2()">
+               <input type="checkbox" name="remedios[]" class="remedio" value="Malvatricin" onclick="return limiteCompra2()">
                <label for="remedios[]"> Malvatricin Spray </label><br><br>
-               <input type="checkbox" name="remedios[]" class="remedios" value="Salompas" onclick="return limiteCompra2()">
+               <input type="checkbox" name="remedios[]" class="remedio" value="Salompas" onclick="return limiteCompra2()">
                <label for="remedios[]"> Salompas Adesivo </label>
-               <input type="checkbox" name="remedios[]" class="remedios" value="Advil" onclick="return limiteCompra2()">
+               <input type="checkbox" name="remedios[]" class="remedio" value="Advil" onclick="return limiteCompra2()">
                <label for="remedios[]"> Advil </label>
-               <input type="checkbox" name="remedios[]" class="remedios" value="Xarope Seki" onclick="return limiteCompra2()">
+               <input type="checkbox" name="remedios[]" class="remedio" value="Xarope Seki" onclick="return limiteCompra2()">
                <label for="remedios[]"> Xarope Seki </label><br>
                <h4 id="invalido2"></h4>
                <h4> Você possui mais de 60 anos?: </h4>
@@ -237,7 +237,7 @@
         <!-- Questão 9: Igual a 8, porém compra de alimentos (máximo 4) e o desconto agora é com cartão fidelidade-->
         <div class="questao">
          <h2> Questao 9 </h2>
-         <form action="lista2.php" method="post" id="form8">
+         <form action="lista2.php" method="post" id="form9">
             <fieldset>
                <legend> Farmácias Ibirajara </legend>
                <label for="nome"> Qual o seu nome?: </label>
@@ -282,7 +282,7 @@
          $vetorNotas = [$nota1, $nota2, $nota3];
          $mediaNotas = array_sum($vetorNotas)/count($vetorNotas);
          $mediaNotasFormatada = number_format($mediaNotas, 2, ",", ".");
-         echo "<p> <h4 style='margin-bottom: -7%;'> Formulário 1 </h4>
+         echo "<p> <h4 style='margin-bottom: -1%;'> Formulário 1 </h4>
          Resultado do processamento da média das notas: <br>
          Nota 1: <span> $nota1 </span> <br>
          Nota 2: <span> $nota2 </span> <br>
@@ -341,7 +341,7 @@
 
          echo "<table>
                <h4 style='margin-bottom: -7%;'> Formulário 3 </h4>
-               <caption> Rendimento Semestral do Aluno de Programação Web I </caption>
+               <caption> Rendimento Semestral do Aluno de Programação Web I (em ordem descrescente) </caption>
                   <tr>
                      <th> Nome do aluno: </th>
                      <th> Nota do aluno: </th>
@@ -396,7 +396,7 @@
          $vetorIdades = [$idade1, $idade2, $idade3];
          $mediaIdades = array_sum($vetorIdades)/count($vetorIdades);
          $mediaIdadesFormatada = number_format($mediaIdades, 2, ",", ".");
-         echo "<p> <h4 style='margin-bottom: -7%;'> Formulário 5 </h4>
+         echo "<p> <h4 style='margin-bottom: -1%;'> Formulário 5 </h4>
          Resultado do processamento da média das idades: <br>
          Idade 1: <span> $idade1 </span> <br>
          Idade 2: <span> $idade2 </span> <br>
@@ -415,8 +415,8 @@
 
          $vetorIdades = [$pessoa1 => $idade1, $pessoa2 => $idade2, $pessoa3 => $idade3];
          
-         $maiorIdade = max($vetorIdades);
-         $maiorIdadeNome = array_search($maiorIdade, $vetorIdades);
+         $menorIdade = min($vetorIdades);
+         $menorIdadeNome = array_search($menorIdade, $vetorIdades);
          
          echo "<table>
                <h4 style='margin-bottom: -7%;'> Formulário 6 </h4>
@@ -436,8 +436,8 @@
             echo "</table>";
 
             echo "<p> Resultado da busca no vetor: <br>
-                  Nome da pessoa mais velha = <span> $maiorIdadeNome </span> <br>
-                  Idade desta pessoa = <span> $maiorIdade </span> </p>";
+                  Nome da pessoa mais nova = <span> $menorIdadeNome </span> <br>
+                  Idade desta pessoa = <span> $menorIdade </span> </p>";
       }
       if(isset($_POST['submit_form7'])){
          //CÓDIGO PARA A QUESTÃO 7
@@ -449,12 +449,14 @@
          $idade3 = $_POST['idade3'];
 
          $vetorIdades = [$pessoa1 => $idade1, $pessoa2 => $idade2, $pessoa3 => $idade3];
-         
          ksort($vetorIdades);
+         
+         $maiorIdade = max($vetorIdades);
+         $maiorIdadeNome = array_search($maiorIdade, $vetorIdades);
          
          echo "<table>
                <h4 style='margin-bottom: -7%;'> Formulário 7 </h4>
-               <caption> Elencamento da Idade dos Entrevistados </caption>
+               <caption> Elencamento da Idade dos Entrevistados (ordem alfabética) </caption>
                <br>
                   <tr>
                      <th> Nome do entrevistado: </th>
@@ -468,12 +470,14 @@
                      </tr>";
             }
             echo "</table>";
+
       }
       if(isset($_POST['submit_form8'])){
          //CÓDIGO PARA A QUESTÃO 8
          //PRODUTOS: DIPIRONA, PREDNISONA, MALVATRICIN, SALOMPAS, ADVIL, XAROPE SEKI
+         define ("DESCONTO", 5/100);
          $nomeComprador = $_POST['nome'];
-         $vetorPrecos8 = ["Dipirona" => 12, 
+         $vetorPrecos8 = ["Dipirona" => 10, 
                           "Prednisona" => 22, 
                           "Malvatricin" => 15, 
                           "Salompas" => 13, 
@@ -489,16 +493,18 @@
             $valorTotalCompra8 += $vetorPrecos8[$remedio];
          }
 
+         $valorDesconto8 = $valorTotalCompra8 * DESCONTO;
          if(isset($_POST['idadecheck'])){
-            define ("DESCONTO", 5/100);
+            $valorFinalCompra8 = $valorTotalCompra8 - $valorDesconto8;
+         }
+         else {
+            $valorFinalCompra8 = $valorTotalCompra8;
          }
 
-         $valorDesconto8 = $valorTotalCompra8 * DESCONTO;
-         $valorFinalCompra8 = $valorTotalCompra8 - $valorDesconto8;
          $valorCompraFormatado8 = number_format($valorFinalCompra8, 2, ",", ".");
 
          echo "<p> Caro usuário, de acordo com os remédios adquiridos, o valor final da sua compra é de <span> R$$valorCompraFormatado8 </span> <br> <br> 
-         Confira, abaixo, a lista de remédios comprados <br> <ul>";
+         Confira, abaixo, a lista de remédios comprados <br> <ul class='listaAlinha'>";
 
          foreach($remediosComprados as $remedio){
             echo "<li> $remedio </li>";
@@ -508,6 +514,7 @@
       if(isset($_POST['submit_form9'])){
          //CÓDIGO PARA A QUESTÃO 9
          //PRODUTOS: BOLO DE FUBÁ, PÃO FATIADO INTEGRAL, QUEIJO PARMESÃO, MELADO, PAÇOCA, KIWI, BARRA DE CEREAL, SUCO DE CAJU
+         define("FIDELIDADE", 5/100);
          $nomeComprador = $_POST['nome'];
          $vetorPrecos9 = ["Bolo de Fubá" => 12, 
                           "Pão Fatiado Integral" => 18, 
@@ -527,18 +534,20 @@
             $valorTotalCompra9 += $vetorPrecos9[$alimento];
          }
 
+         $valorDesconto9 = $valorTotalCompra9 * FIDELIDADE;
          if(isset($_POST['cartaocheck'])){
-            define("FIDELIDADE", 5/100);
+            $valorFinalCompra9 = $valorTotalCompra9 - $valorDesconto9;
+         }
+         else {
+            $valorFinalCompra9 = $valorTotalCompra9;
          }
 
-         $valorDesconto9 = $valorTotalCompra9 * FIDELIDADE;
-         $valorFinalCompra9 = $valorTotalCompra9 - $valorDesconto9;
          $valorCompraFormatado9 = number_format($valorFinalCompra9, 2, ",", ".");
 
          echo "<p> Caro usuário, de acordo com os alimentos adquiridos, o valor final da sua compra é de <span> R$$valorCompraFormatado9 </span> <br> <br> 
          Confira, abaixo, a lista de alimentos comprados <br> <ul>";
 
-         foreach($produtosComprados as $alimento){
+         foreach($alimentosComprados as $alimento){
             echo "<li> $alimento </li>";
          }
          echo "</ul> </p>";

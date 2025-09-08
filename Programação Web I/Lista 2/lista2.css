@@ -11,8 +11,10 @@ body{
   font-family: "Mozilla Headline";
   background-color: #4f4e61;
 }
-li{
-   text-align: right;
+li.listaAlinha{
+   display: flex;
+   flex-direction: column;
+   align-items: left;
 }
 fieldset{
   margin-top: 3%;
