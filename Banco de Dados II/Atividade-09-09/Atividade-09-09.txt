@@ -119,3 +119,16 @@ JOIN FORNECEDORES f1 ON e1.IdFornecedor = f1.IdFornecedor;
 
 -- Mostre uma tabela com o total disponível de cada produto em estoque por fornecedor
 SELECT NomeFornecedor, Disponiveis FROM FORNECEDORES f1 JOIN ESTOQUE e1 ON f1.IdFornecedor = e1.IdFornecedor;
+
+-- DESAFIO
+INSERT INTO ESTOQUE (IdFornecedor, IdProduto, Disponiveis, Custo)
+SELECT FORNECEDORES.IdFornecedor, PRODUTOS.IdProduto, PEDIDOS.Quantidade, (PEDIDOS.Valor/PEDIDOS.Quantidade) FROM FORNECEDORES
+JOIN
+PEDIDOS
+ON
+FORNECEDORES.IdFornecedor = PEDIDOS.IdFornecedor
+JOIN
+PRODUTOS
+ON
+PEDIDOS.IdProduto = PRODUTOS.IdProduto;
+-- INSERT INTO SELECT IdFornecedor, IdProduto, Disponiveis, Custo FROM FORNECEDORES f1 JOIN PEDIDOS p1 ON f1.IdFornecedores = p1.IdFornecedores JOIN PRODUTOS p2 ON p1.IdProdutos = p2.IdProdutos VALUES ('1', '3', '200', '0.12');
