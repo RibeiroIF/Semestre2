@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+html{
+  height: 100%;
+}
+body{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: "Mozilla Headline";
+  background-color: #b23c46;
+}
+li.listaAlinha{
+   display: flex;
+   flex-direction: column;
+   align-items: left;
+}
+fieldset{
+  margin-top: 3%;
+  margin-bottom: 3%;
+  border-style: solid;
+  border-radius: 10px;
+}
+table{
+ width: 60%;
+ border: 1px solid #010302;
+ margin: 30px auto;
+ background-color: #a4a7a5;
+}
+th{
+   background-color: #a4a7a5;
+}
+td{
+   background-color: rgb(218, 216, 212);
+}
+.wraper{
+  margin: auto;
+  display: flex;
+  gap: 20px;
+  width: 550px;
+  overflow-x: scroll;
+  scroll-snap-type: x proximity;
+  box-shadow: 9px 9px 9px rgb(12, 12, 25);
+  scroll-behavior: smooth;
+  scroll-marker-group: after;
+}
+
+.wraper::-webkit-scrollbar{
+  display: none;
+}
+.wraper::scroll-marker-group{
+  margin-top: 1%;
+  display: flex;
+  justify-content: center;
+  gap: .5em;
+}
+
+.questao::scroll-marker{
+  content: " ";
+  height: 1em;
+  width: 1em;
+  background-color: rgb(35, 59, 135);
+  border-radius: 50%;
+}
+
+.questao::scroll-marker:target-current{
+  background-color: rgb(255, 255, 255);
+}
+
+.questao{
+  scroll-snap-align: center;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  flex-shrink: 0;
+  width: 550px;
+  background-color: lightgray;
+  border-radius: 10px;
+  text-align: center;
+  align-content: center;
+  box-shadow: 9px 9px 9px rgb(12, 12, 25);
+}
+
+header{
+  color: rgb(22, 16, 98);
+  background-color: rgb(177, 189, 43);
+  text-align: center;
+  border-radius: 10px;
+  height: 100px;
+  align-content: center;
+  font-size: 26px;
+}
+footer{
+  color: rgb(23, 14, 105);
+  margin-top: auto;
+  background-color: rgb(178, 190, 47);
+  text-align: center;
+}
+
+fieldset{
+  border: 2px solid;
+}
+
+#cabecalho{
+  text-align: center;
+  color: rgb(174, 190, 51);
+  font-size: 28px;
+  text-shadow: 2px 1px 1px rgb(0, 0, 0);
+}
+
+label.alinha{
+  display: inline-block;
+  text-align: right;
+  width: 205px;
+}
+
+input[type = "number"]{
+  width: 50px;
+}
+
+span{
+  font-weight: bold;
+}
+
+div.amostra{
+  border: 1.5px solid;
+  color: rgb(0, 0, 0);
+  background-color: lightgray;
+  text-align: center;
+  margin-top: 3%;
+  margin-left: 36%;
+  margin-right: 36%;
+  border-radius: 10px;
+  box-shadow: 9px 9px 9px rgb(12, 12, 25);
+}
+
+button{
+  margin-top: 2%;
+  font-size: 20px;
+  font-family: "Mozilla Headline";
+}
