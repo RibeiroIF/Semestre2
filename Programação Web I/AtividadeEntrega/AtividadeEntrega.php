@@ -36,34 +36,34 @@
                 <form action="AtividadeEntrega.php" method="post" id="form-entrega">
                     <fieldset class="form1">
                         <legend> Registro do Medicamento 1 </legend>
-                        <label for="codigo1" class="alinha"> Código do Medicamento: </label>
+                        <label class="alinha"> Código do Medicamento: </label>
                         <input type="text" name="codigo1"><br>
-                        <label for="nome1" class="alinha"> Nome do Medicamento: </label>
+                        <label class="alinha"> Nome do Medicamento: </label>
                         <input type="text" name="nome1"><br>
-                        <label for="preco1" class="alinha"> Preço do Medicamento: </label>
+                        <label class="alinha"> Preço do Medicamento: </label>
                         <input type="text" name="preco1">
                     </fieldset>
                     <fieldset class="form1">
                         <legend> Registro do Medicamento 2 </legend>
-                        <label for="codigo2" class="alinha"> Código do Medicamento: </label>
+                        <label class="alinha"> Código do Medicamento: </label>
                         <input type="text" name="codigo2"><br>
-                        <label for="nome2" class="alinha"> Nome do Medicamento: </label>
+                        <label class="alinha"> Nome do Medicamento: </label>
                         <input type="text" name="nome2"><br>
-                        <label for="preco2" class="alinha"> Preço do Medicamento: </label>
+                        <label class="alinha"> Preço do Medicamento: </label>
                         <input type="text" name="preco2">
                     </fieldset>
                     <fieldset class="form1">
                         <legend> Registro do Medicamento 3 </legend>
-                        <label for="codigo3" class="alinha"> Código do Medicamento: </label>
+                        <label class="alinha"> Código do Medicamento: </label>
                         <input type="text" name="codigo3"><br>
-                        <label for="nome3" class="alinha"> Nome do Medicamento: </label>
+                        <label class="alinha"> Nome do Medicamento: </label>
                         <input type="text" name="nome3"><br>
-                        <label for="preco3" class="alinha"> Preço do Medicamento: </label>
+                        <label class="alinha"> Preço do Medicamento: </label>
                         <input type="text" name="preco3">
                     </fieldset>
                     <fieldset class="form2">
                         <legend> Pesquisa de Medicamentos </legend>
-                        <label for="pesquisa" class="alinha"> Código do Medicamento pesquisado: </label>
+                        <label class="alinha"> Código do Medicamento pesquisado: </label>
                         <input type="text" name="pesquisa">
                     </fieldset>
                     <button form="form-entrega" type="submit" class="button" name="submit_form-entrega"> Cadastrar Dados e Pesquisar </button>
