@@ -43,7 +43,7 @@
             function testarNome($nomeAluno){
                $nomeAluno = trim($nomeAluno);
                if(strlen($nomeAluno) == 0){
-                  die("<p> Nome de aluno inválido. Aplicação encerrada! </p>");
+                  die ("<p> Nome de aluno inválido. Aplicação encerrada! </p>");
                }
             }
             function calculoMedia($nota1, $nota2){

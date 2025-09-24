@@ -72,97 +72,99 @@
             <div class="formulario-resposta">
                 <h2> Resultado da Atividade: </h2>
                 <?php
-                // ESPAÇO PARA RESOLUÇÃO DA ATIVIDADE PARA ENTREGAR
-                $codigo1 = $_POST['codigo1'];
-                $codigo2 = $_POST['codigo2'];
-                $codigo3 = $_POST['codigo3'];
+                if(isset($_POST['submit_form-entrega'])){
+                    // ESPAÇO PARA RESOLUÇÃO DA ATIVIDADE PARA ENTREGAR
+                    $codigo1 = $_POST['codigo1'];
+                    $codigo2 = $_POST['codigo2'];
+                    $codigo3 = $_POST['codigo3'];
 
-                $nome1 = $_POST['nome1'];
-                $nome2 = $_POST['nome2'];
-                $nome3 = $_POST['nome3'];
+                    $nome1 = $_POST['nome1'];
+                    $nome2 = $_POST['nome2'];
+                    $nome3 = $_POST['nome3'];
 
-                $preco1 = $_POST['preco1'];
-                $preco2 = $_POST['preco2'];
-                $preco3 = $_POST['preco3'];
+                    $preco1 = $_POST['preco1'];
+                    $preco2 = $_POST['preco2'];
+                    $preco3 = $_POST['preco3'];
 
-                $preco1formatado = number_format($preco1,2,'.','');
-                $preco2formatado = number_format($preco2,2,'.','');
-                $preco3formatado = number_format($preco3,2,'.','');
+                    $preco1formatado = number_format($preco1,2,'.','');
+                    $preco2formatado = number_format($preco2,2,'.','');
+                    $preco3formatado = number_format($preco3,2,'.','');
 
-                // QUESTÃO 1: ORGANIZANDO A MATRIZ INICIAL
-                $matrizMedicamentos = [$codigo1 => [$nome1, $preco1formatado],
-                                       $codigo2 => [$nome2, $preco2formatado],
-                                       $codigo3 => [$nome3, $preco3formatado]];
+                    // QUESTÃO 1: ORGANIZANDO A MATRIZ INICIAL
+                    $matrizMedicamentos = [$codigo1 => [$nome1, $preco1formatado],
+                                        $codigo2 => [$nome2, $preco2formatado],
+                                        $codigo3 => [$nome3, $preco3formatado]];
 
-                // QUESTÃO 2: FORMATO TABULAR PADRÃO
-                echo "<h3> Questão 2: </h3>
-                        <table>
-                        <caption> Tabela de Remédios da Farmácia Itabinoca </caption>
-                        <tr>
-                            <th> Nome do Medicamento </th> 
-                            <th> Código do medicamento </th> 
-                            <th> Preço do Medicamento </th> 
-                        </tr>";
-                foreach($matrizMedicamentos as $codigo => $valorInterno){
-                    echo "<tr>
-                            <td> $valorInterno[0] </td>
-                            <td> $codigo </td>
-                            <td> R$ $valorInterno[1] </td>";
-                    }
-                    echo "</table>";
-                // QUESTÃO 3: MOSTRAR O NOME DO MEDICAMENTO MAIS BARATO
-                foreach($matrizMedicamentos as $codigo => $valorInterno){
-                    $vetorAuxiliar1[$codigo] = $valorInterno[1];
-                }
-
-                $medicamentoMaisBarato = min($vetorAuxiliar1);
-                $valorMedicamentoMaisBarato = array_search($medicamentoMaisBarato, $vetorAuxiliar1);
-                $nomeMedicamentoMaisBarato = $matrizMedicamentos[$valorMedicamentoMaisBarato][0];
-
-                echo "<h3> Questão 3: </h3>
-                        <p> Nome do medicamento mais barato entre os inseridos: <span> $nomeMedicamentoMaisBarato </span> </p> ";
-                // QUESTÃO 4: PESQUISAR O NOME DO MEDICAMENTO
-                $codigoPesquisado = $_POST['pesquisa'];
-                $codigoEncontrado = array_key_exists($codigoPesquisado, $matrizMedicamentos);
-
-                if(!$codigoEncontrado){
-                    die("<h3> Questão 4: </h3>
-                        <p> Caro usuário, o medicamento pesquisado de nome <span> $medicamentoEncontrado </span> não foi encontrado nos registros :( </p>");
-                }
-
-                $medicamentoEncontrado = $matrizMedicamentos[$codigoPesquisado][0];
-                $precoEncontrado = $matrizMedicamentos[$codigoPesquisado][1];
-
-                echo "<h3> Questão 4: </h3>
-                        <p> Resultado da busca por código de medicamento no registro: <br>
-                        Código do medicamento pesquisado: <span> $codigoPesquisado </span> <br>
-                        Nome do medicamento pesquisado: <span> $medicamentoEncontrado </span> <br>
-                        Preço do medicamento pesquisado: <span> R$ $precoEncontrado </span> </p>";
-                // QUESTÃO 5: ORDENAR OS DADOS DE TODOS OS MEDICAMENTOS PELO NOME, EM ORDEM ALFABÉTICA CRESCENTE, E EXIBIR EM TABELA
-                foreach($matrizMedicamentos as $codigo => $valorInterno){
-                    $vetorAuxiliar3[$codigo] = $valorInterno[0];
-                }
-                asort($vetorAuxiliar3);
-
-                echo "<h3> Questão 5: </h3>
-                        <table>
-                        <caption> Tabela de Remédios da Farmácia Itabinoca (Ordem Alfabética Crescente) </caption>
-                        <tr>
-                            <th> Nome do Medicamento </th> 
-                            <th> Código do medicamento </th> 
-                            <th> Preço do Medicamento </th> 
-                        </tr>";
-
-                        foreach($vetorAuxiliar3 as $codigo => $valorMedicamento){
-                        $nome = $matrizMedicamentos[$codigo][0];
-                        $valor = $matrizMedicamentos[$codigo][1];
-                        echo "<tr> 
-                                <td> $nome </td>
+                    // QUESTÃO 2: FORMATO TABULAR PADRÃO
+                    echo "<h3> Questão 2: </h3>
+                            <table>
+                            <caption> Tabela de Remédios da Farmácia Itabinoca </caption>
+                            <tr>
+                                <th> Nome do Medicamento </th> 
+                                <th> Código do medicamento </th> 
+                                <th> Preço do Medicamento </th> 
+                            </tr>";
+                    foreach($matrizMedicamentos as $codigo => $valorInterno){
+                        echo "<tr>
+                                <td> $valorInterno[0] </td>
                                 <td> $codigo </td>
-                                <td> R$ $valor </td>
-                                </tr>";
+                                <td> R$ $valorInterno[1] </td>";
                         }
                         echo "</table>";
+                    // QUESTÃO 3: MOSTRAR O NOME DO MEDICAMENTO MAIS BARATO
+                    foreach($matrizMedicamentos as $codigo => $valorInterno){
+                        $vetorAuxiliar1[$codigo] = $valorInterno[1];
+                    }
+
+                    $medicamentoMaisBarato = min($vetorAuxiliar1);
+                    $valorMedicamentoMaisBarato = array_search($medicamentoMaisBarato, $vetorAuxiliar1);
+                    $nomeMedicamentoMaisBarato = $matrizMedicamentos[$valorMedicamentoMaisBarato][0];
+
+                    echo "<h3> Questão 3: </h3>
+                            <p> Nome do medicamento mais barato entre os inseridos: <span> $nomeMedicamentoMaisBarato </span> </p> ";
+                    // QUESTÃO 4: PESQUISAR O NOME DO MEDICAMENTO
+                    $codigoPesquisado = $_POST['pesquisa'];
+                    $codigoEncontrado = array_key_exists($codigoPesquisado, $matrizMedicamentos);
+
+                    if(!$codigoEncontrado){
+                        die("<h3> Questão 4: </h3>
+                            <p> Caro usuário, o medicamento pesquisado de nome <span> $medicamentoEncontrado </span> não foi encontrado nos registros :( </p>");
+                    }
+
+                    $medicamentoEncontrado = $matrizMedicamentos[$codigoPesquisado][0];
+                    $precoEncontrado = $matrizMedicamentos[$codigoPesquisado][1];
+
+                    echo "<h3> Questão 4: </h3>
+                            <p> Resultado da busca por código de medicamento no registro: <br>
+                            Código do medicamento pesquisado: <span> $codigoPesquisado </span> <br>
+                            Nome do medicamento pesquisado: <span> $medicamentoEncontrado </span> <br>
+                            Preço do medicamento pesquisado: <span> R$ $precoEncontrado </span> </p>";
+                    // QUESTÃO 5: ORDENAR OS DADOS DE TODOS OS MEDICAMENTOS PELO NOME, EM ORDEM ALFABÉTICA CRESCENTE, E EXIBIR EM TABELA
+                    foreach($matrizMedicamentos as $codigo => $valorInterno){
+                        $vetorAuxiliar3[$codigo] = $valorInterno[0];
+                    }
+                    asort($vetorAuxiliar3);
+
+                    echo "<h3> Questão 5: </h3>
+                            <table>
+                            <caption> Tabela de Remédios da Farmácia Itabinoca (Ordem Alfabética Crescente) </caption>
+                            <tr>
+                                <th> Nome do Medicamento </th> 
+                                <th> Código do medicamento </th> 
+                                <th> Preço do Medicamento </th> 
+                            </tr>";
+
+                            foreach($vetorAuxiliar3 as $codigo => $valorMedicamento){
+                            $nome = $matrizMedicamentos[$codigo][0];
+                            $valor = $matrizMedicamentos[$codigo][1];
+                            echo "<tr> 
+                                    <td> $nome </td>
+                                    <td> $codigo </td>
+                                    <td> R$ $valor </td>
+                                    </tr>";
+                            }
+                            echo "</table>";
+                        }
                 ?>
             </div>
         </div>
