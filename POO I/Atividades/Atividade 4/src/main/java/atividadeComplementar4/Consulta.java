@@ -35,6 +35,11 @@ public class Consulta {
 	public StatusConsulta getStatusConsulta() {
 		return status;
 	}
+	
+	public void conferirStatusConsulta(Consulta consulta, StatusConsulta status) {
+		System.out.println("O status da consulta do paciente "+ paciente.getNome() +""
+				+ " é: " +consulta.getStatusConsulta());
+	}
 
 	public String getDataConsulta() {
 		return dataConsulta;

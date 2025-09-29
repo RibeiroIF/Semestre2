@@ -8,6 +8,8 @@ public class Medico {
 	private String nome, cpf, especialidade, crm;
 	private Consulta consulta;
 	List<Consulta> consultas = new ArrayList<Consulta>();
+	
+	public Medico() {}
 
 	public Medico(String nome, String cpf, String especialidade, String crm) {
 		super();
@@ -62,12 +64,15 @@ public class Medico {
 	}
 	
 	public void verConsultas() {
+		int pacientes = 1;
 		for(Consulta consulta : consultas) {
+			System.out.println("-------------------"+ pacientes +"° Paciente----------------------");
 			System.out.println("Nome do Paciente: " + consulta.getPaciente().getNome());
 			System.out.println("Data da consulta: " + consulta.getDataConsulta());
 			System.out.println("Hora da consulta: " + consulta.getHorario());
 			System.out.println("Status da consulta: " + consulta.getStatusConsulta());
 			System.out.println("Prioridade da consulta: " + consulta.getPrioridade());
+			pacientes++;
 		}
 	}
 	
