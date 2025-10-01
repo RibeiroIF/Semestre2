@@ -5,13 +5,13 @@ public class Consulta {
 	private String dataConsulta, horario;
 	private Medico medico;
 	private Paciente paciente;
-	private Prioridade prioridade;
-	private StatusConsulta status;
+	private EPrioridade prioridade;
+	private EStatusConsulta status;
 	
 	public Consulta() {}
 	
 	public Consulta(String dataConsulta, String horario, Medico medico, 
-			Paciente paciente, Prioridade prioridade) {
+			Paciente paciente, EPrioridade prioridade) {
 		super();
 		this.dataConsulta = dataConsulta;
 		this.horario = horario;
@@ -20,25 +20,25 @@ public class Consulta {
 		this.prioridade = prioridade;
 	}
 	
-	public void setStatusConsultaAgendada(StatusConsulta status) {
-		this.status = StatusConsulta.AGENDADA;
+	public void setEStatusConsultaAgendada(EStatusConsulta status) {
+		this.status = EStatusConsulta.AGENDADA;
 	}
 	
-	public void setStatusConsultaRealizada(StatusConsulta status) {
-		this.status = StatusConsulta.REALIZADA;
+	public void setEStatusConsultaRealizada(EStatusConsulta status) {
+		this.status = EStatusConsulta.REALIZADA;
 	}
 	
-	public void setStatusConsultaCancelada(StatusConsulta status) {
-		this.status = StatusConsulta.CANCELADA;
+	public void setEStatusConsultaCancelada(EStatusConsulta status) {
+		this.status = EStatusConsulta.CANCELADA;
 	}
 	
-	public StatusConsulta getStatusConsulta() {
+	public EStatusConsulta getEStatusConsulta() {
 		return status;
 	}
 	
-	public void conferirStatusConsulta(Consulta consulta, StatusConsulta status) {
+	public void conferirEStatusConsulta(Consulta consulta, EStatusConsulta status) {
 		System.out.println("O status da consulta do paciente "+ paciente.getNome() +""
-				+ " é: " +consulta.getStatusConsulta());
+				+ " é: " +consulta.getEStatusConsulta());
 	}
 
 	public String getDataConsulta() {
@@ -73,11 +73,11 @@ public class Consulta {
 		this.paciente = paciente;
 	}
 	
-	public Prioridade getPrioridade() {
+	public EPrioridade getEPrioridade() {
 		return prioridade;
 	}
 	
-	public void setPrioridade(Prioridade prioridade) {
+	public void setEPrioridade(EPrioridade prioridade) {
 		this.prioridade = prioridade;
 	}
 

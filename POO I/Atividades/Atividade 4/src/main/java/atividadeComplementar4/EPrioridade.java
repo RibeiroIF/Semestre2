@@ -1,6 +1,6 @@
 package atividadeComplementar4;
 
-public enum Prioridade {
+public enum EPrioridade {
 	
 	BAIXA, MÉDIA, ALTA
 }

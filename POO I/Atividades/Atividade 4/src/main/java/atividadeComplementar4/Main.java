@@ -15,8 +15,8 @@ public class Main {
 		Endereco endereco1 = new Endereco("Rua Bocaíuva", cidade1);
 		Paciente paciente1 = new Paciente("Astolfo", "12345678911", "Número 167", cidade1, endereco1);
 		Medico medico1 = new Medico("Dráuzio Varella", "98765432100", "Geral", "5748390567");
-		Consulta consulta1 = new Consulta("27/10/2025", "14:00", medico1, paciente1, Prioridade.MÉDIA);
-		consulta1.setStatusConsultaAgendada(StatusConsulta.AGENDADA);
+		Consulta consulta1 = new Consulta("27/10/2025", "14:00", medico1, paciente1, EPrioridade.MÉDIA);
+		consulta1.setEStatusConsultaAgendada(EStatusConsulta.AGENDADA);
 		
 		Cidade cidade2 = new Cidade();
 		Endereco endereco2 = new Endereco();
@@ -39,13 +39,13 @@ public class Main {
 				+ "\n Formato de horário: XX:XX");
 		
 		if(prioridadeConsulta.equalsIgnoreCase("BAIXA")) {
-			consulta2.setPrioridade(Prioridade.BAIXA);
+			consulta2.setEPrioridade(EPrioridade.BAIXA);
 		}
 		if(prioridadeConsulta.equalsIgnoreCase("MEDIA")) {
-			consulta2.setPrioridade(Prioridade.MÉDIA);
+			consulta2.setEPrioridade(EPrioridade.MÉDIA);
 		}
 		if(prioridadeConsulta.equalsIgnoreCase("ALTA")) {
-			consulta2.setPrioridade(Prioridade.ALTA);
+			consulta2.setEPrioridade(EPrioridade.ALTA);
 		}
 		
 		cidade2.setestado(estadoPaciente);
@@ -60,7 +60,7 @@ public class Main {
 		paciente2.setEndereco(endereco2);
 		paciente2.setRuaEndereco(ruaEnderecoPaciente);
 		
-		consulta2.setStatusConsultaAgendada(StatusConsulta.AGENDADA);
+		consulta2.setEStatusConsultaAgendada(EStatusConsulta.AGENDADA);
 		consulta2.setMedico(medico1);
 		consulta2.setPaciente(paciente2);
 		consulta2.setHorario(horarioConsulta);

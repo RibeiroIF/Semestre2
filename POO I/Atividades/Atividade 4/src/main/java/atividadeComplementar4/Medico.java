@@ -7,7 +7,7 @@ public class Medico {
 
 	private String nome, cpf, especialidade, crm;
 	private Consulta consulta;
-	List<Consulta> consultas = new ArrayList<Consulta>();
+	private List<Consulta> consultas = new ArrayList<Consulta>();
 	
 	public Medico() {}
 
@@ -70,8 +70,8 @@ public class Medico {
 			System.out.println("Nome do Paciente: " + consulta.getPaciente().getNome());
 			System.out.println("Data da consulta: " + consulta.getDataConsulta());
 			System.out.println("Hora da consulta: " + consulta.getHorario());
-			System.out.println("Status da consulta: " + consulta.getStatusConsulta());
-			System.out.println("Prioridade da consulta: " + consulta.getPrioridade());
+			System.out.println("Status da consulta: " + consulta.getEStatusConsulta());
+			System.out.println("Prioridade da consulta: " + consulta.getEPrioridade());
 			pacientes++;
 		}
 	}

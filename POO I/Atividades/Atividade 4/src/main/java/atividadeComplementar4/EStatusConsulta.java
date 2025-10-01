@@ -1,6 +1,6 @@
 package atividadeComplementar4;
 
-public enum StatusConsulta {
+public enum EStatusConsulta {
 
 	AGENDADA, REALIZADA, CANCELADA
 }
