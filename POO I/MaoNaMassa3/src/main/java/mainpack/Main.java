@@ -1,4 +1,4 @@
-package maven.MaoNaMassa2;
+package mainpack;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -7,7 +7,8 @@ import cliente.Cliente;
 import cliente.PessoaFisica;
 import cliente.PessoaJuridica;
 import cliente.Pontuacao;
-import ordem.de.servico.OrdemServico;
+import ordens.OrdemServico;
+import ordens.Servico;
 import report.ImpressaoOS;
 import report.Relatorio;
 import veiculo.Cor;
@@ -70,6 +71,12 @@ public class Main {
 		pontuacao2.somarPontos(50);
 		//printFinal(cliente);
 		System.out.println("-----------FIM---------");
+		
+		Servico servico1 = new Servico(1, "Lavação interna");
+		Servico servico2 = new Servico(2, "Lavação interna + externa");
+		Servico servico3 = new Servico(3, "Lavação interna + externa + cera");
+		
+		
 
 	}
 	

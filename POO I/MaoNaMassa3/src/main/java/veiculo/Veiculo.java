@@ -28,6 +28,8 @@ public class Veiculo implements IDados {
 		this.modelo = modelo;
 		this.cor = cor;
 	}
+	
+	
 
 	public Marca getMarca() {
 		return marca;

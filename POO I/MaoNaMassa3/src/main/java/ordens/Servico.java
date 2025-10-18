@@ -1,4 +1,4 @@
-package ordem.de.servico;
+package ordens;
 
 import veiculo.ECategoria;
 
@@ -12,6 +12,12 @@ public class Servico {
 	
 	public Servico() {
 		super();
+	}
+
+	public Servico(int id, String descricao) {
+		super();
+		this.id = id;
+		this.descricao = descricao;
 	}
 
 	public int getId() {
@@ -34,12 +40,32 @@ public class Servico {
 		return valor;
 	}
 
-	public void setValor(double valor) {
-		this.valor = valor;
+	public void setValor(ECategoria categoria) {
+		switch(this.categoria) {
+			case PEQUENO:
+				this.valor = 50;
+				break;
+			case MÉDIO:
+				this.valor = 70;
+				break;
+			case GRANDE:
+				this.valor = 90;
+				break;
+			case MOTO: 
+				this.valor = 60;
+				break;
+			case PADRÃO:
+				this.valor = 80;
+				break;
+		}
 	}
 
 	public ECategoria getCategoria() {
 		return categoria;
 	}
-	
+
+	public static int getPontos() {
+		return pontos;
+	}
+
 }

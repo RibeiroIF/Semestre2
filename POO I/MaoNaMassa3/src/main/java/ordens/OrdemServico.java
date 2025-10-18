@@ -1,5 +1,6 @@
-package ordem.de.servico;
+package ordens;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,7 +15,7 @@ public class OrdemServico {
 	private Date agenda;
 	private Veiculo veiculo;
 	private EStatus status = EStatus.ABERTA;
-	private List<ItemOS> ordem = new ArrayList<>();
+	private List<ItemOS> ordens = new ArrayList<>();
 	
 	public OrdemServico() {
 		super();
@@ -40,8 +41,13 @@ public class OrdemServico {
 		return desconto;
 	}
 	
-	public void setDesconto(double desconto) {
-		this.desconto = desconto;
+	public void setDesconto(double desconto) throws ExceptionLavacao {
+		if (desconto < 0 || desconto > 100) {
+			throw new ExceptionLavacao("O valor do desconto não é viável!!");
+		}
+		else {
+			this.desconto = desconto;
+		}
 	}
 	
 	public Date getAgenda() {
@@ -64,26 +70,41 @@ public class OrdemServico {
 		this.status = status;
 	}
 
-	public double calcularServico() {
-		return total;
-	}
 	
-	public void adicionarItem(ItemOS item) throws ExceptionLavacao {
+	public void adicionarItem(ItemOS item, Servico servico) throws ExceptionLavacao {
 		if (this.status != EStatus.ABERTA) {
 			throw new ExceptionLavacao("Não é possível adicionar a ordem pois não está aberta");
 		}
 		else {
-			this.ordem.add(item);
+			ItemOS itemServico = new ItemOS(Servico.getPontos(), servico.getDescricao(), servico);
+			itemServico.setOrdemServico(this);
+			this.ordens.add(itemServico);
 		}
 	}
 	
-	public void removerItem(ItemOS item) throws ExceptionLavacao {
+	public void removerItem(ItemOS item, Servico servico) throws ExceptionLavacao {
 		if (this.status != EStatus.ABERTA) {
 			throw new ExceptionLavacao("A ordem já não está mais em circulação, portanto a ação é inválida");
 		}
 		else {
-			this.ordem.remove(item);
+			ItemOS itemServico = new ItemOS(Servico.getPontos(), servico.getDescricao(), servico);
+			itemServico.setOrdemServico(this);
+			this.ordens.add(itemServico);
 		}
+	}
+	
+	public double calcularServico() throws ExceptionLavacao {
+		if (ordens.isEmpty()) {
+			throw new ExceptionLavacao("A lista de ordens está vazia, portanto não há valor!!");
+		}
+		else {
+			for(ItemOS ordem : ordens) {
+				this.getVeiculo().getCliente().getPontuacao().somarPontos(Servico.getPontos());
+				total += ordem.getValorServico();
+				return total - (total * (desconto*0.01));
+			}
+		}
+		return total;
 	}
 	
 }

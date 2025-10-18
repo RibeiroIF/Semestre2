@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>maven</groupId>
-  <artifactId>MaoNaMassa2</artifactId>
+  <artifactId>MaoNaMassa3</artifactId>
   <version>1.0</version>
 
   <name>MaoNaMassa2</name>
-  <description>A simple MaoNaMassa2.</description>
+  <description>A simple MaoNaMassa3.</description>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
