@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+html{
+    height: 100%;
+}
+body{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: space-evenly;
+    flex-wrap: nowrap;
+    font-family: "Mozilla Headline";
+    background-color: rgb(164, 160, 166);
+}
+.amostra{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    gap: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.enunciado{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(217, 202, 179);
+    border-radius: 10px;
+    padding: 25px;
+    width: 30%;
+    background-color: rgb(217, 202, 179);
+    box-shadow: 0px 0px 2px 2px rgb(96, 95, 95);
+}
+.titulo-enunciado{
+    text-align: center;
+}
+.resolucao{
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+}
+.formulario-texto{
+    text-align: center;
+    border: 1px solid rgb(236, 230, 221);
+    border-radius: 10px;
+    width: 100%;
+    background-color: rgb(236, 230, 221);
+    box-shadow: 0px 0px 2px 2px rgb(96, 95, 95);
+    line-height: 0.3;
+}
+.formulario-resposta{
+    text-align: center;
+    border: 1px solid rgb(236, 230, 221);
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(236, 230, 221);
+    box-shadow: 0px 0px 2px 2px rgb(96, 95, 95);
+}
+header{
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: auto;
+    background-color: rgb(255, 226, 182);
+    border-radius: 10px;
+    box-shadow: 0px 2px 2px 2px rgb(94, 87, 87);
+}
+footer{
+    text-align: center;
+    font-size: 18px;
+    margin-top: auto;
+    background-color: rgb(255, 226, 182);
+    border-radius: 10px;
+    box-shadow: 0px -2px 2px 2px rgb(94, 87, 87);
+}
+legend{
+    font-size: 20px;
+}
+button{
+    font-size: 18px;
+    margin: 0%;
+}
+fieldset{
+    margin: 5px;
+    margin-left: 80px;
+    margin-right: 80px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.form1{
+    line-height: 1.8;
+}
+.form2{
+    line-height: 1.8;
+}
+label.alinha{
+    display: inline-block;
+    text-align: right;
+    width: 280px;
+}
+table{
+ width: 60%;
+ border: 1px solid #010302;
+ margin: 30px auto;
+ background-color: #a4a7a5;
+}
+th{
+   background-color: #a4a7a5;
+}
+td{
+   background-color: rgb(218, 216, 212);
+}
+span{
+    font-weight: bold;
+}
