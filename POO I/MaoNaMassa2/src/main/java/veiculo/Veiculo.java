@@ -79,11 +79,13 @@ public class Veiculo implements IDados {
 	@Override
 	public String getDados() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Placa_____________: ").append(placa).append("\n");
-		sb.append("Modelo____________: ").append(modelo.getDescricaoModelo()).append("\n");
-		sb.append("Marca_____________: ").append(modelo.getMarca().getNomeMarca()).append("\n");
-		sb.append("Categoria_________: ").append(modelo.getCategoria().getDescricao()).append("\n");
-		sb.append("Potência do motor_: ").append(modelo.getMotor().getPotencia());
+		sb.append("Placa_______________: ").append(placa).append("\n");
+		sb.append("Modelo______________: ").append(modelo.getDescricaoModelo()).append("\n");
+		sb.append("Marca_______________: ").append(modelo.getMarca().getNomeMarca()).append("\n");
+		sb.append("Cor_________________: ").append(cor.getNomeCor()).append("\n");
+		sb.append("Categoria___________: ").append(modelo.getCategoria().getDescricao()).append("\n");
+		sb.append("Potência do motor___: ").append(modelo.getMotor().getPotencia()).append("\n");
+		sb.append("Tipo de combustível_: ").append(modelo.getMotor().getTipoCombustivel().getDescricao());
 		return sb.toString();
 	}
 
