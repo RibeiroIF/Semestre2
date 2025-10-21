@@ -2,9 +2,9 @@
 <html lang="pt-BR">
 <head>
    <meta charset="UTF-8">
-   <link rel="stylesheet" href="questao3.css">
+   <link rel="stylesheet" href="questao4.css">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <script src="questao3.js"></script>
+   <script src="questao4.js"></script>
    <title>Lista 5 - PRW1</title>
 </head>
 <body>
@@ -16,10 +16,49 @@
    <div class="amostra">
       <div class="enunciado">
          <h2 style="text-align: center;"> Enunciado da questão: </h2>
-         <p> Elaborar um script em Javascript que receba do prompt do usuário seu nome e sua idade. <br> Em seguida, o script deve criar um vetor com índice associativo, onde o índice é o nome do usuário e o conteúdo é a sua respectiva idade. <br> Depois disso, o script precisa escrever na página web o índice e o respectivo valor. <br> Coloque este prompt dentro de um laço e recolha o dado de 3 pessoas. </p>
+         <ul>
+          <li> Elaborar um script em Javascript que receba do prompt do usuário seu nome e sua idade. </li>
+          <li> Em seguida, o script deve criar um vetor com índice associativo, onde o índice é o nome do usuário e o conteúdo é a sua respectiva idade. </li>
+          <li> Depois disso, o script precisa escrever na página web o índice e o respectivo valor. </li>
+          <li> Coloque este prompt dentro de um laço e recolha o dado de 3 pessoas. </li>
+         </ul>
       </div>
       <div class="resposta">
-         <h2> Resposta da questão: </h2>
+         <div class="resposta-formulario">
+         <form action="">
+          <fieldset>
+            <legend> Formulário da Questão 4 </legend>
+
+            <fieldset>
+              <legend> Pessoa 1 </legend>
+                <label for="nome1" class="alinha"> Nome: </label>
+                <input type="text" name="nome1" id="nome1"> <br>
+                <label for="idade1" class="alinha"> Idade: </label>
+                <input type="number" name="idade1" id="idade1"> <br>
+            </fieldset>
+            
+            <fieldset>
+              <legend> Pessoa 2 </legend>
+                <label for="nome2" class="alinha"> Nome: </label>
+                <input type="text" name="nome2" id="nome2"> <br>
+                <label for="idade2" class="alinha"> Idade: </label>
+                <input type="number" name="idade2" id="idade2"> <br>
+            </fieldset>
+            
+            <fieldset>
+              <legend> Pessoa 3 </legend>
+                <label for="nome3" class="alinha"> Nome: </label>
+                <input type="text" name="nome3" id="nome3"> <br>
+                <label for="idade3" class="alinha"> Idade: </label>
+                <input type="number" name="idade3" id="idade3"> <br>
+            </fieldset>
+            <button type="button" class="button" id="button" onclick="criarVetor()"> Enviar Dados </button>
+          </fieldset>
+         </form>
+         </div>
+         <div class="resposta-texto">
+          <h2> Resposta da Questão </h2>
+         </div>
       </div>
    </div>
 
