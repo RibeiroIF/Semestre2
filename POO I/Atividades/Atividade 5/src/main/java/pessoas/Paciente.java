@@ -65,11 +65,12 @@ public class Paciente extends Pessoa implements IAgendavel {
 	}
 	
 	@Override
-	public void exibirInformacoes() {
-		System.out.println("Nome_____: "+this.getNome());
-		System.out.println("CPF______: "+this.getCpf());
-		System.out.println("Contato__: " +this.getContato());
-		System.out.println("Endereço_: "+this.getEndereco().getRua()+" - "+this.getEndereco().getCidade().getNome()+", "+this.getEndereco().getCidade().getUf());
+	public String exibirInformacoes() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.exibirInformacoes());
+		sb.append("Contato______:").append(contato).append("\n");
+		sb.append("Endereço_____:").append(this.getEndereco().getRua()).append(" - ").append(this.getEndereco().getCidade().getNome()).append(", ").append(this.getEndereco().getCidade().getUf());
+		return sb.toString();
 	}
 	
 }

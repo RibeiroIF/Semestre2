@@ -59,10 +59,10 @@ public class Main{
     // FORA DA MAIN
     public static void exibirInfos(Pessoa pessoa) {
     	if(pessoa instanceof Paciente) {
-    		((Paciente)pessoa).exibirInformacoes();
+    		System.out.println(((Paciente)pessoa).exibirInformacoes());
     	}
     	else if(pessoa instanceof Medico) {
-    		((Medico)pessoa).exibirInformacoes();
+    		System.out.println(((Medico)pessoa).exibirInformacoes());
     	}
     }
     
