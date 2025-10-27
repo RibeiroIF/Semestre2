@@ -1,7 +1,7 @@
 function criarVetor(){
-   let nome1 = document.getElementById("nome1");
-   let nome2 = document.getElementById("nome2");
-   let nome3 = document.getElementById("nome3");
+   let nome1 = document.getElementById("nome1").value;
+   let nome2 = document.getElementById("nome2").value;
+   let nome3 = document.getElementById("nome3").value;
 
    let idade1 = parseInt(document.getElementById("idade1").value);
    let idade2 = parseInt(document.getElementById("idade2").value);
@@ -18,6 +18,7 @@ function criarVetor(){
 
    for (var valor in minhaLista){
       resposta += "<tr> <td> "+valor+" </td> <td> "+minhaLista[valor]+" </td> </tr>";
+      console.log(valor+" | "+minhaLista[valor]);
    }
 
    resposta += "</table>";
