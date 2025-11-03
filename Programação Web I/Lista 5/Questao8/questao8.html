@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="questao8.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="questao8.js"></script>
+   <title>Lista 5 - PRW1</title>
+</head>
+<body>
+
+   <header>
+      <h2> Lista 5 (JavaScript) - Questão 8 (PRW1) </h2>
+   </header>
+   
+   <div class="amostra">
+      <div class="enunciado">
+         <h2 style="text-align: center;"> Enunciado da questão: </h2>
+         <p> Criar uma aplicação para registrar os dados de 3 veículos, estes dados sendo: </p>
+         <ul>
+          <li> Número do Chassi. </li>
+          <li> Marca. </li>
+          <li> Modelo. </li>
+          <li> Ano de Fabricação </li>
+          <li> Preço de Revenda </li>
+         </ul>
+         <p> Os dados devem ser armazenados em uma matriz, tendo o <span> Número do Chassi </span> do livro como índice. <br> Em seguida, o script deverá: </p>
+         <ol>
+          <li> Calcular o lucro total caso sejam vendidos os carros com fabricação <span> DEPOIS DE 2024. </span> <br>
+               Caso não haja nenhum carro neste grupo, exibir uma mensagem adequada. </li>
+          <li> Mostrar todos os dados do veículo com o <span> MENOR </span> preço de revenda. </li>
+          <li> Tabular os dados de todos os veículos cadastrados que são da marca <span> "Fiat". </span> <br>
+               Caso não haja nenhum carro desta marca, exibir uma mensagem adequada. </li>
+         </ol>
+      </div>
+      <div class="resposta">
+         <div class="resposta-formulario">
+         <form action="">
+          <fieldset>
+            <legend> Formulário da Questão 8 </legend>
+
+            <fieldset>
+              <legend> Carro 1 </legend>
+                <label for="chassi1" class="alinha"> Chassi: </label>
+                <input type="text" name="chassi1" id="chassi1"> <br>
+                <label for="marca1" class="alinha"> Marca: </label>
+                <input type="text" name="marca1" id="marca1"> <br>
+                <label for="modelo1" class="alinha"> Modelo: </label>
+                <input type="text" name="modelo1" id="modelo1"> <br>
+                <label for="fabricacao1" class="alinha"> Ano de Fabricação: </label>
+                <input type="number" name="fabricacao1" id="fabricacao1" min="1800" max="2025"> <br>
+                <label for="preco1" class="alinha"> Preço de Revenda: </label>
+                <input type="number" name="preco1" id="preco1" min="0" step="0.01">
+            </fieldset>
+
+            <fieldset>
+              <legend> Carro 2 </legend>
+                <label for="chassi2" class="alinha"> Chassi: </label>
+                <input type="text" name="chassi2" id="chassi2"> <br>
+                <label for="marca2" class="alinha"> Marca: </label>
+                <input type="text" name="marca2" id="marca2"> <br>
+                <label for="modelo2" class="alinha"> Modelo: </label>
+                <input type="text" name="modelo2" id="modelo2"> <br>
+                <label for="fabricacao2" class="alinha"> Ano de Fabricação: </label>
+                <input type="number" name="fabricacao2" id="fabricacao2" min="1800" max="2025"> <br>
+                <label for="preco2" class="alinha"> Preço de Revenda: </label>
+                <input type="number" name="preco2" id="preco2" min="0" step="0.01">
+            </fieldset>
+
+            <fieldset>
+              <legend> Carro 1 </legend>
+                <label for="chassi3" class="alinha"> Chassi: </label>
+                <input type="text" name="chassi3" id="chassi3"> <br>
+                <label for="marca3" class="alinha"> Marca: </label>
+                <input type="text" name="marca3" id="marca3"> <br>
+                <label for="modelo3" class="alinha"> Modelo: </label>
+                <input type="text" name="modelo3" id="modelo3"> <br>
+                <label for="fabricacao3" class="alinha"> Ano de Fabricação: </label>
+                <input type="number" name="fabricacao3" id="fabricacao3" min="1800" max="2025"> <br>
+                <label for="preco3" class="alinha"> Preço de Revenda: </label>
+                <input type="number" name="preco3" id="preco3" min="0" step="0.01">
+            </fieldset>
+            
+            <button type="button" class="button" id="button" onclick="criarLista()"> Enviar Dados </button>
+          </fieldset>
+         </form>
+         </div>
+         <div class="resposta-texto">
+          <h2 style="text-align: center;"> Resposta da Questão </h2>
+          <div class="form-resposta" id="form-resposta"></div>
+         </div>
+      </div>
+   </div>
+
+   <footer>
+      <h2> Aluno: Gabriel Ribeiro de Souza </h2>
+   </footer>
+</body>
+</html>
