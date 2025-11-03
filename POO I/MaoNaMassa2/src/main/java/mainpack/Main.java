@@ -1,9 +1,7 @@
 package mainpack;
 
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 import cliente.Cliente;
 import cliente.IDados;
@@ -21,8 +19,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Date date1 = new Date();
-		Date date2 = new Date();
+		DateTimeFormatter formatadorHora = DateTimeFormatter.ofPattern("HH:mm:ss");
 		//CORES
 		Cor cor1 = new Cor("Azul Escuro");
 		Cor cor2 = new Cor("Cinza");
@@ -46,7 +43,7 @@ public class Main {
 		Pontuacao pontuacao1 = new Pontuacao();
 		Pontuacao pontuacao2 = new Pontuacao();
 		
-		cliente = new PessoaFisica(1, "Gabriel", "(48)99665-8244", "Gabriel@gmail.com", date1, "123459789-11", date1);
+		cliente = new PessoaFisica(1, "Gabriel", "(48)99665-8244", "Gabriel@gmail.com", LocalDate.now(), "123459789-11", LocalDate.of(2001, 02, 07));
 		cliente.adicionarVeiculo(veiculo1);
 		cliente.adicionarVeiculo(veiculo2);
 		cliente.setPontuacao(pontuacao1);
@@ -55,7 +52,7 @@ public class Main {
 		printFinal(cliente);
 		System.out.println();
 		
-		cliente = new PessoaJuridica(2, "Marcos", "(11)94002-8922", "Marcos@gmail.com", date2, "12.345.678/0001-00", "00000000");
+		cliente = new PessoaJuridica(2, "Marcos", "(11)94002-8922", "Marcos@gmail.com", LocalDate.now(), "12.345.678/0001-00", "00000000");
 		cliente.removerVeiculo(veiculo1);
 		cliente.removerVeiculo(veiculo2);
 		cliente.adicionarVeiculo(veiculo3);
@@ -74,7 +71,7 @@ public class Main {
 		
 		if (referencia instanceof PessoaFisica) {
 			System.out.println(("--------Dados do Cliente (Pessoa Física):----------").toUpperCase());
-			if(((PessoaFisica)referencia).getDataCadastro() == ((PessoaFisica)referencia).getDataNascimento()) {
+			if(((PessoaFisica)referencia).getDataCadastro().equals(((PessoaFisica)referencia).getDataNascimento())) {
 				System.out.println(((PessoaFisica)referencia).getDados("Hoje é seu aniverário, parabéns!! Está apto a um desconto de 20%"));
 			}
 			else {

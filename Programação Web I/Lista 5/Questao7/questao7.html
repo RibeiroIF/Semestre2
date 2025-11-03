@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="questao7.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="questao7.js"></script>
+   <title>Lista 5 - PRW1</title>
+</head>
+<body>
+
+   <header>
+      <h2> Lista 5 (JavaScript) - Questão 7 (PRW1) </h2>
+   </header>
+   
+   <div class="amostra">
+      <div class="enunciado">
+         <h2 style="text-align: center;"> Enunciado da questão: </h2>
+         <p> Criar uma aplicação para guardar os dados de 3 livros, estes dados sendo: </p>
+         <ul>
+          <li> ISBN do Livro. </li>
+          <li> Título do Livro. </li>
+          <li> Preço unitário do Livro. </li>
+          <li> Quantidade de volumes disponíveis para a venda de cada livro </li>
+         </ul>
+         <p> Os dados devem ser armazenados em uma matriz, tendo o ISBN do livro como índice. <br> Em seguida, o script deverá: </p>
+         <ol>
+          <li> Retirar todos os dados dos livros e exibi-los em uma tabela </li>
+          <li> Mostrar o valor total da venda de <span> APENAS </span> os livros que tiverem acima de 10 volumes disponíveis </li>
+          <li> Exibir os dados do livro mais caro cadastrado </li>
+         </ol>
+      </div>
+      <div class="resposta">
+         <div class="resposta-formulario">
+         <form action="">
+          <fieldset>
+            <legend> Formulário da Questão 7 </legend>
+
+            <fieldset>
+              <legend> Produto 1 </legend>
+                <label for="isbn1" class="alinha"> ISBN do Livro: </label>
+                <input type="text" name="isbn1" id="isbn1"> <br>
+                <label for="livro1" class="alinha"> Nome do Livro: </label>
+                <input type="text" name="livro" id="livro1"> <br>
+                <label for="preco1" class="alinha"> Preço unitário: </label>
+                <input type="number" name="preco1" id="preco1" class="alinha" min="0" step="0.01"> <br>
+                <label for="volume1" class="alinha"> Volumes disponíveis: </label>
+                <input type="number" name="volume1" id="volume1" class="alinha" min="0"> <br>
+            </fieldset>
+            
+            <fieldset>
+              <legend> Produto 2 </legend>
+                <label for="isbn2" class="alinha"> ISBN do Livro: </label>
+                <input type="text" name="isbn2" id="isbn2"> <br>
+                <label for="livro2" class="alinha"> Nome do Livro: </label>
+                <input type="text" name="livro2" id="livro2"> <br>
+                <label for="preco2" class="alinha"> Preço unitário: </label>
+                <input type="number" name="preco2" id="preco2" class="alinha" min="0" step="0.01"> <br>
+                <label for="volume2" class="alinha"> Volumes disponíveis: </label>
+                <input type="number" name="volume2" id="volume2" class="alinha" min="0"> <br>
+            </fieldset>
+            
+            <fieldset>
+              <legend> Produto 3 </legend>
+                <label for="isbn3" class="alinha"> ISBN do Livro: </label>
+                <input type="text" name="isbn3" id="isbn3"> <br>
+                <label for="livro3" class="alinha"> Nome do Livro: </label>
+                <input type="text" name="livro3" id="livro3"> <br>
+                <label for="preco3" class="alinha"> Preço unitário: </label>
+                <input type="number" name="preco3" id="preco3" class="alinha" min="0" step="0.01"> <br>
+                <label for="volume3" class="alinha"> Volumes disponíveis: </label>
+                <input type="number" name="volume3" id="volume3" class="alinha" min="0"> <br>
+            </fieldset>
+            <button type="button" class="button" id="button" onclick="criarLista()"> Enviar Dados </button>
+          </fieldset>
+         </form>
+         </div>
+         <div class="resposta-texto">
+          <h2 style="text-align: center;"> Resposta da Questão </h2>
+          <div class="form-resposta" id="form-resposta"></div>
+         </div>
+      </div>
+   </div>
+
+   <footer>
+      <h2> Aluno: Gabriel Ribeiro de Souza </h2>
+   </footer>
+</body>
+</html>

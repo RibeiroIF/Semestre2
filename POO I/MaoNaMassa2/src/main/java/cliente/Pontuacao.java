@@ -7,14 +7,6 @@ public class Pontuacao {
 	public Pontuacao() {
 		super();
 	}
-	
-	public int getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
 
 	public void somarPontos(int quantidade) {
 		this.quantidade += quantidade;

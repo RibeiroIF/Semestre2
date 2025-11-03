@@ -1,6 +1,6 @@
 package cliente;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class PessoaJuridica extends Cliente {
 
@@ -10,7 +10,7 @@ public class PessoaJuridica extends Cliente {
 		super();
 	}
 
-	public PessoaJuridica(int idCliente, String nomeCliente, String celular, String email, Date dataCadastro, String cnpj, String inscricaoEstadual) {
+	public PessoaJuridica(int idCliente, String nomeCliente, String celular, String email, LocalDate dataCadastro, String cnpj, String inscricaoEstadual) {
 		super(idCliente, nomeCliente, celular, email, dataCadastro);
 		this.cnpj = cnpj;
 		this.inscricaoEstadual = inscricaoEstadual;
@@ -41,8 +41,8 @@ public class PessoaJuridica extends Cliente {
 	public String getDados() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.getDados());
-		sb.append("CNPJ_______________: ").append(cnpj).append("\n");
-		sb.append("Inscrição Estadual_: ").append(inscricaoEstadual);
+		sb.append("CNPJ________________: ").append(cnpj).append("\n");
+		sb.append("Inscrição Estadual__: ").append(inscricaoEstadual);
 		return sb.toString();
 	}
 	@Override

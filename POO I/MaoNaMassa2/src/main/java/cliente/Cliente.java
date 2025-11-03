@@ -1,8 +1,8 @@
 package cliente;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import veiculo.Veiculo;
@@ -11,7 +11,7 @@ public abstract class Cliente implements IDados {
 
 	protected int idCliente;
 	protected String nomeCliente, celular, email;
-	protected Date dataCadastro;
+	protected LocalDate dataCadastro;
 	protected List<Veiculo> ListaDeVeiculos = new ArrayList<Veiculo>(); 
 	protected Pontuacao pontuacao;
 	
@@ -19,7 +19,7 @@ public abstract class Cliente implements IDados {
 		super();
 	}
 
-	public Cliente(int idCliente, String nomeCliente, String celular, String email, Date dataCadastro) {
+	public Cliente(int idCliente, String nomeCliente, String celular, String email, LocalDate dataCadastro) {
 		super();
 		this.idCliente = idCliente;
 		this.nomeCliente = nomeCliente;
@@ -82,11 +82,11 @@ public abstract class Cliente implements IDados {
 		this.email = email;
 	}
 
-	public Date getDataCadastro() {
+	public LocalDate getDataCadastro() {
 		return dataCadastro;
 	}
 
-	public void setDataCadastro(Date dataCadastro) {
+	public void setDataCadastro(LocalDate dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
 
@@ -99,12 +99,14 @@ public abstract class Cliente implements IDados {
 
 	@Override
 	public String getDados() {
+		
+		DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		StringBuilder sb = new StringBuilder();
-		sb.append("Nome_____________: ").append(nomeCliente).append("\n");
-		sb.append("Celular__________: ").append(celular).append("\n");
-		sb.append("E-mail___________: ").append(email).append("\n");
-		sb.append("Data de Cadastro_: ").append(dataCadastro).append("\n");
-		sb.append("Pontuação________: ").append(pontuacao.verificarPontos()).append("\n");
+		sb.append("Nome________________: ").append(nomeCliente).append("\n");
+		sb.append("Celular_____________: ").append(celular).append("\n");
+		sb.append("E-mail______________: ").append(email).append("\n");
+		sb.append("Data de Cadastro____: ").append(dataCadastro.format(formatadorData)).append("\n");
+		sb.append("Pontuação___________: ").append(pontuacao.verificarPontos()).append("\n");
 		return sb.toString();
 	}
 	@Override
