@@ -100,7 +100,7 @@ function criarLista(){
             maximumFractionDigits: 2
          })
          
-         corpoTabela += "<tr> <td>" +carro+ "</td> <td>" +marcaAtual+ "</td> <td>" +concessionaria[carro][1]+ "</td> <td>" +concessionaria[carro][2]+ "</td> <td>" +precoAtual+ "</td> </tr>";
+         corpoTabela += "<tr> <td>" +carro+ "</td> <td>" +marcaAtual+ "</td> <td>" +concessionaria[carro][1]+ "</td> <td>" +concessionaria[carro][2]+ "</td> <td> R$" +precoAtual+ "</td> </tr>";
       }
    }
 
