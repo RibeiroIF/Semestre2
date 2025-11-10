@@ -47,10 +47,12 @@ function criarLista(){
    if (valorTotal != 0){
      
       valorTotal = valorTotal.toLocaleString("pt-BR", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
+         style: "currency",
+         currency: "BRL",
+         minimumFractionDigits: 2,
+         maximumFractionDigits: 2
    })
-      mensagemQuestao1 += "<li> O lucro da concessionária considerando a venda dos carros com ano de fabricação <span> POSTERIOR </span> a 2024 é de: <span> R$" +valorTotal+ " </span> </li>";
+      mensagemQuestao1 += "<li> O lucro da concessionária considerando a venda dos carros com ano de fabricação <span> POSTERIOR </span> a 2024 é de: <span>" +valorTotal+ " </span> </li>";
    }
    else{
       mensagemQuestao1 = "<li> Não há nenhum carro com ano de fabricação posterior a 2024, portanto, o lucro total da concessionária é de <span> R$0,00 (zero reais) </span> </li>";
@@ -75,6 +77,8 @@ function criarLista(){
    }
 
    precoCarroMaisBarato = precoCarroMaisBarato.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
       minimumFractionDigits: 2,
       maximumFractionDigits: 2
    })
@@ -96,16 +100,18 @@ function criarLista(){
       if (marcaAtual.localeCompare(marcaEscolhida) == 0){
 
          precoAtual = precoAtual.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
          })
          
-         corpoTabela += "<tr> <td>" +carro+ "</td> <td>" +marcaAtual+ "</td> <td>" +concessionaria[carro][1]+ "</td> <td>" +concessionaria[carro][2]+ "</td> <td> R$" +precoAtual+ "</td> </tr>";
+         corpoTabela += "<tr> <td>" +carro+ "</td> <td>" +marcaAtual+ "</td> <td>" +concessionaria[carro][1]+ "</td> <td>" +concessionaria[carro][2]+ "</td> <td>" +precoAtual+ "</td> </tr>";
       }
    }
 
    if (corpoTabela == ""){
-      respostaTerceiraQuestao = "<h4 style='text-align: center'> A concessionária não possui carros da marca Fiat, portanto, não há tabela a exibir :( </h4>";
+      respostaTerceiraQuestao = "<h3 style='text-align: center'> A concessionária não possui carros da marca Fiat, portanto, não há tabela a exibir :( </h3>";
    }
    else{
       tabelaCarros += corpoTabela;

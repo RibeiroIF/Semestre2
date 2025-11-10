@@ -24,11 +24,21 @@ function criarLista(){
 
   let divResposta = document.getElementById("form-resposta");
 
-  let resposta = "<table> <tr> <th> ISBN do Livro </th> <th> Nome do Livro </th> <th> Preço Unitário </th> <th> Volumes Disponíveis </th> </tr>";
+  let resposta = "<table> <caption> Lista de livros da Biblioteca </caption> <tr> <th> ISBN do Livro </th> <th> Nome do Livro </th> <th> Preço Unitário </th> <th> Volumes Disponíveis </th> </tr>";
 
   // RESOLUÇÃO DA PRIMEIRA QUESTÃO: CRIAR TABELA DA BIBLIOTECA
   for(let livro in biblioteca){
-    resposta += "<tr> <td>" +livro+ "</td> <td>" +biblioteca[livro][0]+ "</td> <td>" +biblioteca[livro][1]+ "</td> <td>" +biblioteca[livro][2]+ "</td> </tr>"
+
+   // FORMATAÇÃO DO VALOR DE CADA UNIDADE DE CADA LIVRO PARA A TABELA
+   precoLivroAtual = biblioteca[livro][1];
+   precoLivroAtual = precoLivroAtual.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+   })
+
+    resposta += "<tr> <td>" +livro+ "</td> <td>" +biblioteca[livro][0]+ "</td> <td>" +precoLivroAtual+ "</td> <td>" +biblioteca[livro][2]+ "</td> </tr>"
   }
 
   resposta += "</table>";
@@ -38,6 +48,7 @@ function criarLista(){
   let volumesLivro = 0;
   let lucroLivro = 0;
   let lucroTotal = 0;
+
   for(let livro in biblioteca){
     valorLivro = parseFloat(biblioteca[livro][1]);
     volumesLivro = parseInt(biblioteca[livro][2]);
@@ -64,13 +75,28 @@ function criarLista(){
     }
   }
 
+  // FORMATAÇÃO DO VALOR DO LUCRO TOTAL DE VENDAS
+  lucroTotal = lucroTotal.toLocaleString("pt-BR", {
+   style: "currency",
+   currency: "BRL",
+   minimumFractionDigits: 2,
+   maximumFractionDigits: 2
+  })
+  // FORMATAÇÃO DO VALOR DO LIVRO MAIS CARO
+  valorLivroMaisCaro = valorLivroMaisCaro.toLocaleString("pt-BR", {
+   style: "currency",
+   currency: "BRL",
+   minimumFractionDigits: 2,
+   maximumFractionDigits: 2
+  });
+
   resposta += "<ul>"
-  resposta += "<li> Total de lucro da venda dos livros que possuem mais de 10 volumes: <span> R$" +lucroTotal+ "</span> </li>";
+  resposta += "<li> Total de lucro da venda dos livros que possuem mais de 10 volumes: <span>" +lucroTotal+ "</span> </li>";
   resposta += "<li> Informações do livro mais caro: ";
   resposta += "<ol>";
   resposta += "<li> ISBN: <span>" +isbnLivroMaisCaro+ "</span> </li>";
   resposta += "<li> Nome: <span>" +nomeLivroMaisCaro+ "</span> </li>";
-  resposta += "<li> Preço por unidade: <span> R$"+valorLivroMaisCaro+ "</span> </li>";
+  resposta += "<li> Preço por unidade: <span>"+valorLivroMaisCaro+ "</span> </li>";
   resposta += "<li> Volumes disponíveis: <span>" +volumesLivroMaisCaro+ "</span> </li> </ol> </li>";
 
   divResposta.innerHTML = resposta;
