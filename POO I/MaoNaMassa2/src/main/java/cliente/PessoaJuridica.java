@@ -37,6 +37,7 @@ public class PessoaJuridica extends Cliente {
 		return "PessoaJuridica [cnpj=" + cnpj + ", inscricaoEstadual=" + inscricaoEstadual + "]";
 	}
 
+	// CORREÇÃO QUANTO AO MÉTODO "PRINTLN", AGORA UTILIZANDO UM MÉTODO STRING COM STRINGBUILDER
 	@Override
 	public String getDados() {
 		StringBuilder sb = new StringBuilder();

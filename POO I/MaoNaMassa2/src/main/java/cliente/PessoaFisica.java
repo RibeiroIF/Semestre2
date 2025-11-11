@@ -39,9 +39,9 @@ public class PessoaFisica extends Cliente {
 		return "PessoaFisica [cpf=" + cpf + ", dataNascimento=" + dataNascimento + "]";
 	}
 
+	// CORREÇÃO QUANTO AO MÉTODO "PRINTLN", AGORA UTILIZANDO UM MÉTODO STRING COM STRINGBUILDER
 	@Override
 	public String getDados() {
-		
 		DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.getDados());
