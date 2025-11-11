@@ -2,6 +2,7 @@ package veiculo;
 
 public enum ETipoCombustivel {
 
+	// ATRIBUTOS PARA OS ENUMS
 	GASOLINA ("Veículo a base de gasolina"), 
 	ETANOL ("Veículo a base de etanol"), 
 	FLEX ("Veículo a base flex"), 

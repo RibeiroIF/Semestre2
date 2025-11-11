@@ -2,6 +2,7 @@ package veiculo;
 
 public enum ECategoria {
 
+	// ATRIBUTOS PARA OS ENUMS
 	PEQUENO ("Carro de tamanho pequeno"), 
 	MÉDIO ("Carro de tamanho médio"), 
 	GRANDE ("Carro de tamanho grande"), 

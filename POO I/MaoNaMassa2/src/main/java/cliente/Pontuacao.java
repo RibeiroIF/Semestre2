@@ -4,8 +4,9 @@ public class Pontuacao {
 
 	private int quantidade = 0;
 	
-	public Pontuacao() {
+	public Pontuacao(int quantidade) {
 		super();
+		this.quantidade = quantidade;
 	}
 
 	public void somarPontos(int quantidade) {

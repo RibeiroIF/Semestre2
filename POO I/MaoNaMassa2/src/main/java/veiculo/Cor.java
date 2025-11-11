@@ -2,30 +2,31 @@ package veiculo;
 
 public class Cor {
 
-	private long idCor;
-	private String nomeCor;
+	// RETIRADA A COMPLEMENTAÇÃO DOS NOMES
+	private long id;
+	private String nome;
 	
 	public Cor() {}
 	
-	public Cor(String nomeCor) {
+	public Cor(String nome) {
 		super();
-		this.nomeCor = nomeCor;
+		this.nome = nome;
 	}
 
 	public long getIdCor() {
-		return idCor;
+		return id;
 	}
 
-	public void setIdCor(long idCor) {
-		this.idCor = idCor;
+	public void setIdCor(long id) {
+		this.id = id;
 	}
 
 	public String getNomeCor() {
-		return nomeCor;
+		return nome;
 	}
 
-	public void setNomeCor(String nomeCor) {
-		this.nomeCor = nomeCor;
+	public void setNomeCor(String nome) {
+		this.nome = nome;
 	}
 
 	

@@ -1,7 +1,6 @@
 package mainpack;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import cliente.Cliente;
 import cliente.IDados;
@@ -18,13 +17,11 @@ import veiculo.Veiculo;
 public class Main {
 
 	public static void main(String[] args) {
-		
-		DateTimeFormatter formatadorHora = DateTimeFormatter.ofPattern("HH:mm:ss");
+		// AINDA FIZ O TRABALHO UTILIZANDO DIFERENTES PACOTES. SEI QUE NO FEEDBACK FOI REFORÇADO QUE NÃO ERA NECESSÁRIO, PORÉM 		QUIS COMEÇAR A PEGAR O COSTUME PARA TRABALHOS FUTUROS
 		//CORES
 		Cor cor1 = new Cor("Azul Escuro");
 		Cor cor2 = new Cor("Cinza");
 		Cor cor3 = new Cor("Amarelo");
-		// MOTORES
 		// MARCAS
 		Marca marca1 = new Marca(1, "BYD");
 		Marca marca2 = new Marca(2, "Chevrolet");
@@ -40,31 +37,32 @@ public class Main {
 		
 		Cliente cliente = null;
 		
-		Pontuacao pontuacao1 = new Pontuacao();
-		Pontuacao pontuacao2 = new Pontuacao();
+		Pontuacao pontuacao1 = new Pontuacao(0);
+		Pontuacao pontuacao2 = new Pontuacao(0);
 		
-		cliente = new PessoaFisica(1, "Gabriel", "(48)99665-8244", "Gabriel@gmail.com", LocalDate.now(), "123459789-11", LocalDate.of(2001, 02, 07));
+		cliente = new PessoaFisica(1, "Gabriel", "(48)99665-8244", "Gabriel@gmail.com", LocalDate.of(2025, 10, 10), "123459789-11", LocalDate.of(2001, 02, 07));
 		cliente.adicionarVeiculo(veiculo1);
 		cliente.adicionarVeiculo(veiculo2);
 		cliente.setPontuacao(pontuacao1);
-		cliente.getDataCadastro();
 		pontuacao1.somarPontos(20);
 		printFinal(cliente);
 		System.out.println();
 		
-		cliente = new PessoaJuridica(2, "Marcos", "(11)94002-8922", "Marcos@gmail.com", LocalDate.now(), "12.345.678/0001-00", "00000000");
+		cliente = new PessoaJuridica(2, "Marcos", "(11)94002-8922", "Marcos@gmail.com", LocalDate.of(2025, 11, 22), "12.345.678/0001-00", "00000000");
 		cliente.removerVeiculo(veiculo1);
 		cliente.removerVeiculo(veiculo2);
 		cliente.adicionarVeiculo(veiculo3);
 		cliente.setPontuacao(pontuacao2);
 		pontuacao2.somarPontos(50);
 		printFinal(cliente);
+		
 
 	}
 	
 	// FORA DA MAIN
 	
 	// PRINT DE DADOS DEPENDENDO SE O PARÂMETRO É: PESSOA FÍSICA, PESSOA JURÍDICA OU UM VEÍCULO REGISTRADO
+	// FIQUEI CONFUSO QUANTO À EQUIVALÊNCIA DAS DATAS PARA CASO DA MENSAGEM DE OBSERVAÇÃO, TENTEI UTILIZAR A BIBLIOTECA 	"CALENDAR" PORÉM NÃO TIVE SUCESSO 
 	public static void printFinal(IDados referencia) {
 		
 		int numero = 1;

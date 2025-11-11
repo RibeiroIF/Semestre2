@@ -2,11 +2,13 @@ package veiculo;
 
 public class Modelo {
 
+	// RETIRADA A COMPLEMENTAÇÃO DOS NOMES
 	private int id;
 	private String descricao;
 	private Marca marca;
 	private ECategoria categoria;
 	private Motor motor;
+	
 	
 	public Modelo() {}
 	
@@ -19,6 +21,7 @@ public class Modelo {
 		this.motor = new Motor(potencia, combustivel);
 	}
 	
+	// CORREÇÃO FEITA, RETIRANDO O MÉTODO SET MOTOR
 	public Motor getMotor() {
 		return motor;
 	}

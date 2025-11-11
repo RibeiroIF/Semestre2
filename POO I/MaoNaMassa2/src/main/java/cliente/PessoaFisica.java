@@ -2,7 +2,6 @@ package cliente;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class PessoaFisica extends Cliente {
 
@@ -13,8 +12,8 @@ public class PessoaFisica extends Cliente {
 		super();
 	}
 
-	public PessoaFisica(int idCliente, String nomeCliente, String celular, String email, LocalDate dataCadastro, String cpf, LocalDate dataNascimento) {
-		super(idCliente, nomeCliente, celular, email, dataCadastro);
+	public PessoaFisica(int id, String nome, String celular, String email, LocalDate dataCadastro, String cpf, LocalDate dataNascimento) {
+		super(id, nome, celular, email, dataCadastro);
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
 	}

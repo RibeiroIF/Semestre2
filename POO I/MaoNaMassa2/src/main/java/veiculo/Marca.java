@@ -2,6 +2,7 @@ package veiculo;
 
 public class Marca {
 
+	// RETIRADA A COMPLEMENTAÇÃO DOS NOMES
 	private int id;
 	private String nome;
 	

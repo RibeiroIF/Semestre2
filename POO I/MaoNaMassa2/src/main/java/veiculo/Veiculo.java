@@ -5,11 +5,13 @@ import cliente.IDados;
 
 public class Veiculo implements IDados {
 
-	private int idVeiculo;
-	private String placa, observacoesVeiculo;
+	// RETIRADA A COMPLEMENTAÇÃO DOS NOMES
+	private int id;
+	private String placa, observacoes;
 	private Modelo modelo;
 	private Cliente cliente;
 	private Cor cor;
+	// CORREÇÃO FEITA, RETIRANDO A DECLARAÇÃO PARA MARCA
 	
 	public Veiculo() {}
 
@@ -19,11 +21,11 @@ public class Veiculo implements IDados {
 		this.modelo = modelo;
 	}
 
-	public Veiculo(int idVeiculo, String placa, String observacoesVeiculo, Modelo modelo, Cor cor) {
+	public Veiculo(int id, String placa, String observacoes, Modelo modelo, Cor cor) {
 		super();
-		this.idVeiculo = idVeiculo;
+		this.id = id;
 		this.placa = placa;
-		this.observacoesVeiculo = observacoesVeiculo;
+		this.observacoes = observacoes;
 		this.modelo = modelo;
 		this.cor = cor;
 	}
@@ -37,11 +39,11 @@ public class Veiculo implements IDados {
 	}
 
 	public int getIdVeiculo() {
-		return idVeiculo;
+		return id;
 	}
 
 	public void setIdVeiculo(int idVeiculo) {
-		this.idVeiculo = idVeiculo;
+		this.id = idVeiculo;
 	}
 
 	public String getPlaca() {
@@ -53,11 +55,11 @@ public class Veiculo implements IDados {
 	}
 
 	public String getObservacoesVeiculo() {
-		return observacoesVeiculo;
+		return observacoes;
 	}
 
 	public void setObservacoesVeiculo(String observacoesVeiculo) {
-		this.observacoesVeiculo = observacoesVeiculo;
+		this.observacoes = observacoesVeiculo;
 	}
 
 	public Modelo getModelo() {
@@ -76,16 +78,18 @@ public class Veiculo implements IDados {
 		this.cliente = cliente;
 	}
 
+	// ESTE É O DESAFIO PROPOSTO PARA O MÃO NA MASSA 2
+	
 	@Override
 	public String getDados() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Placa_______________: ").append(placa).append("\n");
-		sb.append("Modelo______________: ").append(modelo.getDescricaoModelo()).append("\n");
-		sb.append("Marca_______________: ").append(modelo.getMarca().getNomeMarca()).append("\n");
-		sb.append("Cor_________________: ").append(cor.getNomeCor()).append("\n");
-		sb.append("Categoria___________: ").append(modelo.getCategoria().getDescricao()).append("\n");
-		sb.append("Potência do motor___: ").append(modelo.getMotor().getPotencia()).append("\n");
-		sb.append("Tipo de combustível_: ").append(modelo.getMotor().getTipoCombustivel().getDescricao());
+		sb.append("Placa...............: ").append(placa).append("\n");
+		sb.append("Modelo..............: ").append(modelo.getDescricaoModelo()).append("\n");
+		sb.append("Marca...............: ").append(modelo.getMarca().getNomeMarca()).append("\n");
+		sb.append("Cor.................: ").append(cor.getNomeCor()).append("\n");
+		sb.append("Categoria...........: ").append(modelo.getCategoria().getDescricao()).append("\n");
+		sb.append("Potência do motor...: ").append(modelo.getMotor().getPotencia()).append("\n");
+		sb.append("Tipo de combustível.: ").append(modelo.getMotor().getTipoCombustivel().getDescricao());
 		return sb.toString();
 	}
 
@@ -93,7 +97,7 @@ public class Veiculo implements IDados {
 	public String getDados(String observacao) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n").append(getDados()).append(observacao);
-		return null;
+		return sb.toString();
 	}
 
 }

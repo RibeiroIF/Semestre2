@@ -9,8 +9,9 @@ import veiculo.Veiculo;
 
 public abstract class Cliente implements IDados {
 
-	protected int idCliente;
-	protected String nomeCliente, celular, email;
+	// RETIRADA A COMPLEMENTAÇÃO DOS NOMES
+	protected int id;
+	protected String nome, celular, email;
 	protected LocalDate dataCadastro;
 	protected List<Veiculo> ListaDeVeiculos = new ArrayList<Veiculo>(); 
 	protected Pontuacao pontuacao;
@@ -19,10 +20,10 @@ public abstract class Cliente implements IDados {
 		super();
 	}
 
-	public Cliente(int idCliente, String nomeCliente, String celular, String email, LocalDate dataCadastro) {
+	public Cliente(int id, String nome, String celular, String email, LocalDate dataCadastro) {
 		super();
-		this.idCliente = idCliente;
-		this.nomeCliente = nomeCliente;
+		this.id = id;
+		this.nome = nome;
 		this.celular = celular;
 		this.email = email;
 		this.dataCadastro = dataCadastro;
@@ -51,19 +52,19 @@ public abstract class Cliente implements IDados {
 	}
 	
 	public int getIdCliente() {
-		return idCliente;
+		return id;
 	}
 
-	public void setIdCliente(int idCliente) {
-		this.idCliente = idCliente;
+	public void setIdCliente(int id) {
+		this.id = id;
 	}
 
 	public String getNomeCliente() {
-		return nomeCliente;
+		return nome;
 	}
 
-	public void setNomeCliente(String nomeCliente) {
-		this.nomeCliente = nomeCliente;
+	public void setNomeCliente(String nome) {
+		this.nome = nome;
 	}
 
 	public String getCelular() {
@@ -92,7 +93,7 @@ public abstract class Cliente implements IDados {
 
 	@Override
 	public String toString() {
-		return "Cliente [idCliente=" + idCliente + ", nomeCliente=" + nomeCliente + ", celular=" + celular + ", email="
+		return "Cliente [idCliente=" + id + ", nomeCliente=" + nome + ", celular=" + celular + ", email="
 				+ email + ", dataCadastro=" + dataCadastro + ", ListaDeVeiculos=" + ListaDeVeiculos + ", pontuacao="
 				+ pontuacao + "]";
 	}
@@ -102,7 +103,7 @@ public abstract class Cliente implements IDados {
 		
 		DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		StringBuilder sb = new StringBuilder();
-		sb.append("Nome________________: ").append(nomeCliente).append("\n");
+		sb.append("Nome________________: ").append(nome).append("\n");
 		sb.append("Celular_____________: ").append(celular).append("\n");
 		sb.append("E-mail______________: ").append(email).append("\n");
 		sb.append("Data de Cadastro____: ").append(dataCadastro.format(formatadorData)).append("\n");

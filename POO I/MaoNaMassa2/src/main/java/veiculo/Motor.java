@@ -2,6 +2,7 @@ package veiculo;
 
 public class Motor {
 
+	// RETIRADA A COMPLEMENTAÇÃO DOS NOMES
 	private int potencia;
 	private ETipoCombustivel tipoCombustivel;
 	
