@@ -30,6 +30,11 @@ public abstract class Pessoa {
 		this.cpf = cpf;
 	}
 	
-	abstract void exibirInformacoes();
+	public String exibirInformacoes() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Nome......:").append(nome).append("\n");
+		sb.append("CPF.......:").append(cpf).append("\n");
+		return sb.toString();	
+	}
 	
 }

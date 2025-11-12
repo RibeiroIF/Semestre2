@@ -1,4 +1,4 @@
-package informacoes.pessoais;
+package pessoas;
 
 public class Endereco {
 
@@ -15,11 +15,11 @@ public class Endereco {
 		this.cidade = cidade;
 	}
 
-	public Endereco(String rua, String complemento, Cidade cidade) {
+	public Endereco(String rua, String complemento, String nome, String uf) {
 		super();
 		this.rua = rua;
 		this.complemento = complemento;
-		this.cidade = cidade;
+		this.cidade = new Cidade(nome, uf);
 	}
 	
 	public Cidade getCidade() {

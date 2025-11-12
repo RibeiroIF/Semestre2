@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>maven</groupId>
-  <artifactId>Atividade5</artifactId>
+  <artifactId>Atividade6</artifactId>
   <version>1.0</version>
 
-  <name>Atividade5</name>
+  <name>Atividade6</name>
   <description>A simple Atividade5.</description>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>

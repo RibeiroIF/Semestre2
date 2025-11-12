@@ -6,14 +6,12 @@ import java.util.List;
 import agendamento.IAgendavel;
 import consultas.Consulta;
 import consultas.Medicamento;
-import informacoes.pessoais.Cidade;
-import informacoes.pessoais.Endereco;
 
 public class Paciente extends Pessoa implements IAgendavel {
 
-	private String contato, rua;
-	private Endereco endereco;
+	private String contato;
 	private Consulta consulta;
+	private Endereco endereco;
 	private List<Medicamento> historico;
 	private List<Consulta> consultas;
 	
@@ -38,9 +36,6 @@ public class Paciente extends Pessoa implements IAgendavel {
 		this.consultas = new ArrayList<>();
 	}
 	
-	public String getRua() {
-		return rua;
-	}
 
 	public Endereco getEndereco() {
 		return endereco;
@@ -79,11 +74,12 @@ public class Paciente extends Pessoa implements IAgendavel {
 	}
 	
 	@Override
-	public void exibirInformacoes() {
-		System.out.println("Nome____: "+this.getNome());
-		System.out.println("CPF_____: "+this.getCpf());
-		System.out.println("Contato_: "+this.getContato());
-		System.out.println("Endereço: "+this.getEndereco().getRua()+" - "+this.getEndereco().getCidade().getNome()+", "+this.getEndereco().getCidade().getUf());
+	public String exibirInformacoes() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.exibirInformacoes());
+		sb.append("Nome......:").append(contato).append("\n");
+		sb.append("Endereço..:").append(this.getEndereco().getRua()).append(" - ").append(this.getEndereco().getCidade().getNome()).append(", ").append(this.getEndereco().getCidade().getUf());
+		return sb.toString();
 	}
 	
 }

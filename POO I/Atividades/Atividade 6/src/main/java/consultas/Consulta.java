@@ -1,7 +1,6 @@
 package consultas;
 
 import agendamento.EPrioridade;
-import agendamento.IAgendavel;
 import pessoas.Medico;
 import pessoas.Paciente;
 
@@ -11,7 +10,7 @@ public class Consulta {
 	private EPrioridade prioridade;
 	private Paciente paciente;
 	private Medico medico;
-	private RegistroConsulta registroConsulta;
+	private RegistroConsulta registroConsulta = new RegistroConsulta();
 	
 	public Consulta() {
 		super();
@@ -71,8 +70,5 @@ public class Consulta {
 		return registroConsulta;
 	}
 
-	public void setRegistroConsulta(RegistroConsulta registroConsulta) {
-		this.registroConsulta = registroConsulta;
-	}
 	
 }
