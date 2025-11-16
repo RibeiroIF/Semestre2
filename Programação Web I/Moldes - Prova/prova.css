@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+  --primary-color: #F1F3E0;
+  --secondary-color: #c7ddc0;
+  --tertiary-color: #708fa4;
+  --shadow-color: #0a2a40;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  height: 100%;
+  font-family: "Mozilla Headline";
+}
+
+body{
+  min-height: 100%;
+  line-height: 1.5;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary-color);
+}
+
+.amostra{
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1em;
+  padding: 10px;
+  height: 600px;
+}
+
+/* ESPAÇO PARA MODIFICAÇÃO DE AMBOS OS SETORES MAIORES */
+.pergunta{
+  background-color: var(--primary-color);
+  text-align: center;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px -1px 4px 2px var(--shadow-color);
+}
+
+.resposta{
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr;
+  gap: 1em;
+}
+
+/* ESPAÇO PARA MODIFICAÇÃO DE CADA QUADRADO ESPECÍFICO */
+.formulario-dados{
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  padding: 10px;
+  width: 80%;
+  margin-left: auto;
+  box-shadow: -1px 1px 4px 2px var(--shadow-color);
+}
+
+.formulario-resultado{
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin-right: auto;
+  box-shadow: 1px 1px 4px 2px var(--shadow-color);
+}
+
+/* ELEMENTOS INTERNOS DOS FORMULÁRIOS */
+fieldset{
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid black;
+}
+
+legend{
+  font-weight: bold;
+}
+
+.button{
+   display: block;
+   margin: auto;
+   font-size: 20px;
+   font-weight: bold;
+   margin-top: 3%;
+   padding: 10px;
+   border-radius: 10px;
+}
+
+.alinha{
+  display: inline-block;
+  text-align: right;
+  justify-content: end;
+  width: 200px;
+}
+
+header{
+  background-color: var(--tertiary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-size: 16px;
+  margin-bottom: auto;
+  height: 80px;
+}
+
+footer{
+  background-color: var(--tertiary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 16px;
+  margin-top: auto;
+  height: 80px;
+}
+

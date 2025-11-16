@@ -55,11 +55,12 @@ public class Medico extends Pessoa implements IAgendavel {
 	}
 	
 	@Override
-	public void exibirInformacoes() {
-		System.out.println("Nome_________: "+this.getNome());
-		System.out.println("CPF__________: "+this.getCpf());
-		System.out.println("CRM__________: "+this.getCrm());
-		System.out.println("Especialidade: "+this.getEspecialidade());
+	public String exibirInformacoes() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.exibirInformacoes());
+		sb.append("CRM..........:").append(crm).append("\n");
+		sb.append("Especialidade:").append(especialidade).append("\n");
+		return sb.toString();
 	}
 	
 }

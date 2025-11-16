@@ -1,4 +1,4 @@
-package informacoes.pessoais;
+package pessoas;
 
 public class Cidade {
 

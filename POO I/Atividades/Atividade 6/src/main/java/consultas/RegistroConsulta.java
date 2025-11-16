@@ -48,6 +48,7 @@ public class RegistroConsulta {
 		}
 		else {
 			listaMedicamentos.add(historico);
+			historico.setRegistroConsulta(this);
 		}
 	}
 }

@@ -4,9 +4,8 @@ import agendamento.EPrioridade;
 import consultas.Consulta;
 import consultas.HistoricoMedicacao;
 import consultas.Medicamento;
-import consultas.RegistroConsulta;
 import exceptions.MedicamentoIndicadoException;
-import informacoes.pessoais.Cidade;
+import pessoas.Cidade;
 import pessoas.Medico;
 import pessoas.Paciente;
 
@@ -27,10 +26,7 @@ public class Main{
     	// GERAÇÃO DAS CONSULTAS
         Consulta consulta1 = new Consulta("10/10/2025", "16:00", medico1, paciente1, EPrioridade.BAIXA);
         Consulta consulta2 = new Consulta("12/10/2025", "20:00", medico1, paciente2, EPrioridade.MÉDIA);
-        
-        // GERAÇÃO DOS REGISTROS
-        RegistroConsulta registro1 = new RegistroConsulta("Consulta bem-sucedida, paciente recebeu atestado e a receita completa" ,consulta1);
-        RegistroConsulta registro2 = new RegistroConsulta("Paciente foi enviado com um medicamento temporário, irá retornar para mais exames", consulta2);
+       
         
         // GERAÇÃO DOS MEDICAMENTOS
         Medicamento medicamento1 = new Medicamento("Advil", "Guanabara");
@@ -39,27 +35,23 @@ public class Main{
         
         // ADIÇÃO DOS MEDICAMENTOS EM CADA REGISTRO
         try {
-			registro1.adicionarMedicamento("Medicamento para dor de cabeça", medicamento1);
+        	consulta1.getRegistroConsulta().adicionarMedicamento("Dor de Cabeça", medicamento1);
 		} catch (MedicamentoIndicadoException e) {
 			System.out.println("Medicamento não existente/Descrição não inserida");
 		}
         
         try {
-			registro2.adicionarMedicamento("Medicamento para tosse", medicamento2);
+        	consulta2.getRegistroConsulta().adicionarMedicamento("Para tosse", medicamento2);
 		} catch (MedicamentoIndicadoException e) {
 			System.out.println("Medicamento não existente/Descrição não inserida");
 		}
         
         try {
-			registro2.adicionarMedicamento("Xarope para tosse", medicamento3);
+        	consulta2.getRegistroConsulta().adicionarMedicamento("Xarope", medicamento3);
 		} catch (MedicamentoIndicadoException e) {
 			System.out.println("Medicamento não existente/Descrição não inserida");
 		}
         // TÉRMINO DA ADIÇÃO DOS MEDICAMENTOS
-        
-        //APLICAÇÃO DOS REGISTROS ÀS CONSULTAS
-        consulta1.setRegistroConsulta(registro1);
-        consulta2.setRegistroConsulta(registro2);
         
         // AGENDAMENTO DAS CONSULTAS AOS MÉDICOS
         medico1.agendarConsulta(consulta1);
@@ -72,20 +64,19 @@ public class Main{
         
         // CONFERÊNCIAS ATRAVÉS DO PRINT
         System.out.println("---------------CONFERÊNCIA DE PACIENTES------------");
-        paciente1.exibirInformacoes();
+        System.out.println(paciente1.exibirInformacoes());
         System.out.println("--------------------------------");
-        paciente2.exibirInformacoes();
-        System.out.println("----------FIM DA CONFERÊNCIA DE PACIENTES----------");
+        System.out.println(paciente2.exibirInformacoes());
+        System.out.println();
         System.out.println("--------------CONFERÊNCIA DE MÉDICOS---------------");
-        medico1.exibirInformacoes();
-        System.out.println("---------FIM DA CONFERÊNCIA DE MÉDICOS-------------");
+        System.out.println(medico1.exibirInformacoes());
+        System.out.println();
         System.out.println("-------CONFERÊNCIA DE CONSULTAS POR MÉDICO---------");
         verificarConsultasDoMedico(medico1);
-        System.out.println("---------FIM DA CONFERÊNCIA DE CONSULTAS-----------");
+        System.out.println();
         System.out.println("------CONFERÊNCIA DE HISTÓRICO DOS PACIENTES-------");
         verificarHistoricoDoPaciente(paciente1);
         verificarHistoricoDoPaciente(paciente2);
-        System.out.println("----------------FIM DAS CONFERÊNCIAS---------------");
         
     }
     
@@ -93,8 +84,8 @@ public class Main{
     
     // FUNÇÃO PARA VERIFICAR HISTÓRICO DE CONSULTAS DO MÉDICO
     public static void verificarConsultasDoMedico(Medico medico) {
+    	System.out.println("-------------MÉDICO:"+medico.getNome()+"------------");
     	for (Consulta consulta : medico.getConsultas()) {
-    		System.out.println("---------DETALHES DA CONSULTA:"+medico.getNome()+"---------");
     		System.out.println("Paciente atendido____________________: "+consulta.getPaciente().getNome());
         	System.out.println("Dia da consulta______________________: "+consulta.getData());
         	System.out.println("Hora da consulta_____________________: "+consulta.getHorario());
@@ -109,13 +100,13 @@ public class Main{
         			System.out.println("- Nome:"+medicamentos.getMedicamento().getNome()+" | Fabricante: "+medicamentos.getMedicamento().getFabricante());
         		}
         	}
+        	System.out.println();
     	}
     }
     
     // FUNÇÃO PARA VERIFICAR O HISTÓRICO DO PACIENTE (MÉDICOS COM QUE SE CONSULTOU E MEDICAMENTOS QUE FORAM RECEITADOS)
     public static void verificarHistoricoDoPaciente(Paciente paciente) {
-    	System.out.println("----------DETALHES DO PACIENTE:"+paciente.getNome()+"---------");
-    	paciente.exibirInformacoes();
+    	System.out.println(paciente.exibirInformacoes());
     	System.out.println("Médicos com quem se consultou: ");
     	for(Consulta consulta : paciente.getConsultas()) {
     		if(paciente.getConsultas().isEmpty()) {
@@ -128,7 +119,7 @@ public class Main{
     	}
     	System.out.println("Medicamentos receitados para o paciente: ");
     	for(Consulta consulta : paciente.getConsultas()) {
-    		if(paciente.getConsultas().isEmpty()) {
+    		if(consulta.getRegistroConsulta().getListaMedicamentos().isEmpty()) {
     			System.out.println("Nenhum medicamento foi receitado ao paciente!");
     		}
     		else {
@@ -137,6 +128,7 @@ public class Main{
     			}
     		}
     	}
+    	System.out.println();
     }
     
     
