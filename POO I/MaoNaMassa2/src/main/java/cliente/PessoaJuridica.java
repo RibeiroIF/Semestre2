@@ -42,8 +42,8 @@ public class PessoaJuridica extends Cliente {
 	public String getDados() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.getDados());
-		sb.append("CNPJ________________: ").append(cnpj).append("\n");
-		sb.append("Inscrição Estadual__: ").append(inscricaoEstadual);
+		sb.append("CNPJ................: ").append(cnpj).append("\n");
+		sb.append("Inscrição Estadual..: ").append(inscricaoEstadual);
 		return sb.toString();
 	}
 	@Override

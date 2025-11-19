@@ -41,14 +41,15 @@ public class PessoaJuridica extends Cliente {
 	public String getDados() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.getDados());
-		sb.append("CNPJ: ").append(cnpj).append("\n");
-		sb.append("Inscrição Estadual: ").append(inscricaoEstadual);
+		sb.append("CNPJ................: ").append(cnpj).append("\n");
+		sb.append("Inscrição Estadual..: ").append(inscricaoEstadual);
 		return sb.toString();
 	}
 	@Override
 	public String getDados(String observacao) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("\n").append(getDados()).append(observacao);
+		sb.append("\n").append(getDados()).append("\n");
+		sb.append("Observação_________: ").append(observacao);
 		return sb.toString();
 	}
 

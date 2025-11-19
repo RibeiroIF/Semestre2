@@ -2,30 +2,30 @@ package veiculo;
 
 public class Cor {
 
-	private long idCor;
-	private String nomeCor;
+	private long id;
+	private String nome;
 	
 	public Cor() {}
 	
 	public Cor(String nomeCor) {
 		super();
-		this.nomeCor = nomeCor;
+		this.nome = nomeCor;
 	}
 
 	public long getIdCor() {
-		return idCor;
+		return id;
 	}
 
 	public void setIdCor(long idCor) {
-		this.idCor = idCor;
+		this.id = idCor;
 	}
 
 	public String getNomeCor() {
-		return nomeCor;
+		return nome;
 	}
 
 	public void setNomeCor(String nomeCor) {
-		this.nomeCor = nomeCor;
+		this.nome = nomeCor;
 	}
 
 	

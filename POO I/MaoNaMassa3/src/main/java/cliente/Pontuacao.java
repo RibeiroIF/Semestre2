@@ -8,20 +8,17 @@ public class Pontuacao {
 		super();
 	}
 	
-	public int getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
-
 	public void somarPontos(int quantidade) {
-		this.setQuantidade(this.getQuantidade() + quantidade);
+		this.quantidade += quantidade;
 	}
 
 	public void subtrairPontos(int quantidade) {
-		this.setQuantidade(this.getQuantidade() - quantidade);
+		if (this.quantidade == 0) {
+			System.out.println("Não é possível retirar a pontuação pois esta está em zero!!");
+		}
+		else {
+			this.quantidade -= quantidade;
+		}
 	}
 	
 	public int verificarPontos() {

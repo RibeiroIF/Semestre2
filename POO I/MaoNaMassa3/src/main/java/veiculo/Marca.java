@@ -2,8 +2,8 @@ package veiculo;
 
 public class Marca {
 
-	private int idMarca;
-	private String nomeMarca;
+	private int id;
+	private String nome;
 	
 	public Marca() {
 		super();
@@ -11,24 +11,24 @@ public class Marca {
 
 	public Marca(int idMarca, String nomeMarca) {
 		super();
-		this.idMarca = idMarca;
-		this.nomeMarca = nomeMarca;
+		this.id = idMarca;
+		this.nome = nomeMarca;
 	}
 
 	public int getIdMarca() {
-		return idMarca;
+		return id;
 	}
 	
 	public void setIdMarca(int idMarca) {
-		this.idMarca = idMarca;
+		this.id = idMarca;
 	}
 	
 	public String getNomeMarca() {
-		return nomeMarca;
+		return nome;
 	}
 	
 	public void setNomeMarca(String nomeMarca) {
-		this.nomeMarca = nomeMarca;
+		this.nome = nomeMarca;
 	}
 	
 }

@@ -2,29 +2,25 @@ package veiculo;
 
 public class Modelo {
 
-	private int idModelo;
-	private String descricaoModelo;
+	private int id;
+	private String descricao;
 	private Marca marca;
 	private ECategoria categoria;
 	private Motor motor;
 	
 	public Modelo() {}
 	
-	public Modelo(int idModelo, String descricaoModelo, Marca marca, Motor motor, ECategoria categoria) {
+	public Modelo(int idModelo, String descricaoModelo, Marca marca, ECategoria categoria, int potencia, ETipoCombustivel combustivel) {
 		super();
-		this.idModelo = idModelo;
-		this.descricaoModelo = descricaoModelo;
+		this.id = idModelo;
+		this.descricao = descricaoModelo;
 		this.marca = marca;
-		this.motor = motor;
 		this.categoria = categoria;
+		this.motor = new Motor(potencia, combustivel);
 	}
 	
 	public Motor getMotor() {
 		return motor;
-	}
-
-	public void setMotor(Motor motor) {
-		this.motor = motor;
 	}
 
 	public ECategoria getCategoria() {
@@ -45,19 +41,19 @@ public class Modelo {
 
 
 	public int getIdModelo() {
-		return idModelo;
+		return id;
 	}
 
 	public void setIdModelo(int idModelo) {
-		this.idModelo = idModelo;
+		this.id = idModelo;
 	}
 
 	public String getDescricaoModelo() {
-		return descricaoModelo;
+		return descricao;
 	}
 
 	public void setDescricaoModelo(String descricaoModelo) {
-		this.descricaoModelo = descricaoModelo;
+		this.descricao = descricaoModelo;
 	}
 
 

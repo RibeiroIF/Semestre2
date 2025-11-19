@@ -100,16 +100,16 @@ public abstract class Cliente implements IDados {
 
 	@Override
 	public String getDados() {
-		
 		DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		StringBuilder sb = new StringBuilder();
-		sb.append("Nome________________: ").append(nome).append("\n");
-		sb.append("Celular_____________: ").append(celular).append("\n");
-		sb.append("E-mail______________: ").append(email).append("\n");
-		sb.append("Data de Cadastro____: ").append(dataCadastro.format(formatadorData)).append("\n");
-		sb.append("Pontuação___________: ").append(pontuacao.verificarPontos()).append("\n");
+		sb.append("Nome................: ").append(nome).append("\n");
+		sb.append("Celular.............: ").append(celular).append("\n");
+		sb.append("E-mail..............: ").append(email).append("\n");
+		sb.append("Data de Cadastro....: ").append(dataCadastro.format(formatadorData)).append("\n");
+		sb.append("Pontuação...........: ").append(pontuacao.verificarPontos()).append("\n");
 		return sb.toString();
 	}
+	
 	@Override
 	public String getDados(String observacao) {
 		StringBuilder sb = new StringBuilder();

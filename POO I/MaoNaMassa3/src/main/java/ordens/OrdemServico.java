@@ -1,8 +1,7 @@
 package ordens;
 
-import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import exceptions.ExceptionLavacao;
@@ -12,13 +11,14 @@ public class OrdemServico {
 
 	private long numero;
 	private double total, desconto;
-	private Date agenda;
-	private Veiculo veiculo;
+	private LocalDate agenda;
 	private EStatus status = EStatus.ABERTA;
-	private List<ItemOS> ordens = new ArrayList<>();
+	private Veiculo veiculo; 
+	private List<ItemOS> itens = new ArrayList<>();
 	
-	public OrdemServico() {
+	public OrdemServico(long numero) {
 		super();
+		this.numero = numero;
 	}
 	
 	public long getNumero() {
@@ -50,11 +50,11 @@ public class OrdemServico {
 		}
 	}
 	
-	public Date getAgenda() {
+	public LocalDate getAgenda() {
 		return agenda;
 	}
 	
-	public void setAgenda(Date agenda) {
+	public void setAgenda(LocalDate agenda) {
 		this.agenda = agenda;
 	}
 	
@@ -78,7 +78,7 @@ public class OrdemServico {
 		else {
 			ItemOS itemServico = new ItemOS(Servico.getPontos(), servico.getDescricao(), servico);
 			itemServico.setOrdemServico(this);
-			this.ordens.add(itemServico);
+			this.itens.add(itemServico);
 		}
 	}
 	
@@ -89,18 +89,18 @@ public class OrdemServico {
 		else {
 			ItemOS itemServico = new ItemOS(Servico.getPontos(), servico.getDescricao(), servico);
 			itemServico.setOrdemServico(this);
-			this.ordens.add(itemServico);
+			this.itens.add(itemServico);
 		}
 	}
 	
 	public double calcularServico() throws ExceptionLavacao {
-		if (ordens.isEmpty()) {
+		if (itens.isEmpty()) {
 			throw new ExceptionLavacao("A lista de ordens está vazia, portanto não há valor!!");
 		}
 		else {
-			for(ItemOS ordem : ordens) {
+			for(ItemOS item : itens) {
 				this.getVeiculo().getCliente().getPontuacao().somarPontos(Servico.getPontos());
-				total += ordem.getValorServico();
+				total += item.getValorServico();
 				return total - (total * (desconto*0.01));
 			}
 		}

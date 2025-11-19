@@ -1,18 +1,18 @@
 package cliente;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.time.format.DateTimeFormatter;
 
 public class PessoaFisica extends Cliente {
 
 	private String cpf;
-	private Date dataNascimento;
+	private LocalDate dataNascimento;
 	
 	public PessoaFisica() {
 		super();
 	}
 
-	public PessoaFisica(int idCliente, String nomeCliente, String celular, String email, LocalDate dataCadastro, String cpf, Date dataNascimento) {
+	public PessoaFisica(int idCliente, String nomeCliente, String celular, String email, LocalDate dataCadastro, String cpf, LocalDate dataNascimento) {
 		super(idCliente, nomeCliente, celular, email, dataCadastro);
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
@@ -26,11 +26,11 @@ public class PessoaFisica extends Cliente {
 		this.cpf = cpf;
 	}
 
-	public Date getDataNascimento() {
+	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 	
@@ -41,16 +41,18 @@ public class PessoaFisica extends Cliente {
 
 	@Override
 	public String getDados() {
+		DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.getDados());
-		sb.append("CPF: ").append(cpf).append("\n");
-		sb.append("Data de Nascimento: ").append(dataNascimento);
+		sb.append("CPF.................: ").append(cpf).append("\n");
+		sb.append("Data de Nascimento..: ").append(dataNascimento.format(formatadorData));
 		return sb.toString();
 	}
 	@Override
 	public String getDados(String observacao) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("\n").append(getDados()).append(observacao);
+		sb.append(getDados()).append("\n");
+		sb.append("Observação..........: ").append(observacao);
 		return sb.toString();
 	}
 	

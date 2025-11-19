@@ -5,11 +5,10 @@ import cliente.IDados;
 
 public class Veiculo implements IDados {
 
-	private int idVeiculo;
-	private String placa, observacoesVeiculo;
+	private int id;
+	private String placa, observacoes;
 	private Modelo modelo;
 	private Cliente cliente;
-	private Marca marca;
 	private Cor cor;
 	
 	public Veiculo() {}
@@ -20,23 +19,13 @@ public class Veiculo implements IDados {
 		this.modelo = modelo;
 	}
 
-	public Veiculo(int idVeiculo, String placa, String observacoesVeiculo, Modelo modelo, Cor cor) {
+	public Veiculo(int id, String placa, String observacoes, Modelo modelo, Cor cor) {
 		super();
-		this.idVeiculo = idVeiculo;
+		this.id = id;
 		this.placa = placa;
-		this.observacoesVeiculo = observacoesVeiculo;
+		this.observacoes = observacoes;
 		this.modelo = modelo;
 		this.cor = cor;
-	}
-	
-	
-
-	public Marca getMarca() {
-		return marca;
-	}
-
-	public void setMarca(Marca marca) {
-		this.marca = marca;
 	}
 
 	public Cor getCor() {
@@ -48,11 +37,11 @@ public class Veiculo implements IDados {
 	}
 
 	public int getIdVeiculo() {
-		return idVeiculo;
+		return id;
 	}
 
 	public void setIdVeiculo(int idVeiculo) {
-		this.idVeiculo = idVeiculo;
+		this.id = idVeiculo;
 	}
 
 	public String getPlaca() {
@@ -64,11 +53,11 @@ public class Veiculo implements IDados {
 	}
 
 	public String getObservacoesVeiculo() {
-		return observacoesVeiculo;
+		return observacoes;
 	}
 
 	public void setObservacoesVeiculo(String observacoesVeiculo) {
-		this.observacoesVeiculo = observacoesVeiculo;
+		this.observacoes = observacoesVeiculo;
 	}
 
 	public Modelo getModelo() {
@@ -90,18 +79,19 @@ public class Veiculo implements IDados {
 	@Override
 	public String getDados() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Placa: ").append(placa).append("\n");
-		sb.append("Modelo: ").append(modelo.getDescricaoModelo()).append("\n");
-		sb.append("Marca: ").append(modelo.getMarca().getNomeMarca()).append("\n");
-		sb.append("Categoria: ").append(modelo.getCategoria()).append("\n");
-		sb.append("Potência do motor: ").append(modelo.getMotor().getPotencia());
+		sb.append("Placa..............: ").append(placa).append("\n");
+		sb.append("Modelo.............: ").append(modelo.getDescricaoModelo()).append("\n");
+		sb.append("Marca..............: ").append(modelo.getMarca().getNomeMarca()).append("\n");
+		sb.append("Categoria..........: ").append(modelo.getCategoria()).append("\n");
+		sb.append("Potência do motor..: ").append(modelo.getMotor().getPotencia());
 		return sb.toString();
 	}
 
 	@Override
 	public String getDados(String observacao) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("\n").append(getDados()).append(observacao);
+		sb.append(getDados()).append("\n");
+		sb.append("Observação..........: ").append(observacao);
 		return null;
 	}
 

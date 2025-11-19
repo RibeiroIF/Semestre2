@@ -45,15 +45,15 @@ public class PessoaFisica extends Cliente {
 		DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.getDados());
-		sb.append("CPF_________________: ").append(cpf).append("\n");
-		sb.append("Data de Nascimento__: ").append(dataNascimento.format(formatadorData));
+		sb.append("CPF.................: ").append(cpf).append("\n");
+		sb.append("Data de Nascimento..: ").append(dataNascimento.format(formatadorData));
 		return sb.toString();
 	}
 	@Override
 	public String getDados(String observacao) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(getDados()).append("\n");
-		sb.append("Observação_________: ").append(observacao);
+		sb.append("Observação..........: ").append(observacao);
 		return sb.toString();
 	}
 	
