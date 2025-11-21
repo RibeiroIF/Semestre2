@@ -1,4 +1,4 @@
-package cliente;
+package domain;
 
 public class Pontuacao {
 

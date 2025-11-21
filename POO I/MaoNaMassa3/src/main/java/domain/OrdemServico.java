@@ -1,11 +1,10 @@
-package ordens;
+package domain;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import exceptions.ExceptionLavacao;
-import veiculo.Veiculo;
 
 public class OrdemServico {
 
@@ -14,11 +13,20 @@ public class OrdemServico {
 	private LocalDate agenda;
 	private EStatus status = EStatus.ABERTA;
 	private Veiculo veiculo; 
-	private List<ItemOS> itens = new ArrayList<>();
+	private List<ItemOS> itens;
 	
+	public List<ItemOS> getItens() {
+		return itens;
+	}
+
+	public void setItens(List<ItemOS> itens) {
+		this.itens = itens;
+	}
+
 	public OrdemServico(long numero) {
 		super();
 		this.numero = numero;
+		this.itens = new ArrayList<ItemOS>();
 	}
 	
 	public long getNumero() {
@@ -29,7 +37,11 @@ public class OrdemServico {
 		this.numero = numero;
 	}
 	
+	// ESTE MÉTODO É PARA PEGAR O TOTAL DO SERVIÇO DESCONSIDERANDO O DESCONTO
 	public double getTotal() {
+		for (ItemOS item : itens) {
+			this.total += item.getValorServico();
+		}
 		return total;
 	}
 	
@@ -61,6 +73,10 @@ public class OrdemServico {
 	public Veiculo getVeiculo() {
 		return veiculo;
 	}
+	
+	public void setVeiculo(Veiculo veiculo) {
+		this.veiculo = veiculo;
+	}
 
 	public EStatus getStatus() {
 		return status;
@@ -71,40 +87,46 @@ public class OrdemServico {
 	}
 
 	
-	public void adicionarItem(ItemOS item, Servico servico) throws ExceptionLavacao {
+	public void adicionarItem(int id, String descricao, double valor) throws ExceptionLavacao {
 		if (this.status != EStatus.ABERTA) {
 			throw new ExceptionLavacao("Não é possível adicionar a ordem pois não está aberta");
 		}
 		else {
+			Servico servico = new Servico(id, descricao, valor);
 			ItemOS itemServico = new ItemOS(Servico.getPontos(), servico.getDescricao(), servico);
-			itemServico.setOrdemServico(this);
 			this.itens.add(itemServico);
+			this.setVeiculo(veiculo);
+			this.getVeiculo().getCliente().getPontuacao().somarPontos(Servico.getPontos());
+			itemServico.setOrdemServico(this);
 		}
 	}
 	
-	public void removerItem(ItemOS item, Servico servico) throws ExceptionLavacao {
+	public void removerItem(int id, String descricao, double valor) throws ExceptionLavacao {
 		if (this.status != EStatus.ABERTA) {
 			throw new ExceptionLavacao("A ordem já não está mais em circulação, portanto a ação é inválida");
 		}
 		else {
+			Servico servico = new Servico(id, descricao, valor);
 			ItemOS itemServico = new ItemOS(Servico.getPontos(), servico.getDescricao(), servico);
-			itemServico.setOrdemServico(this);
 			this.itens.add(itemServico);
+			this.setVeiculo(null);
+			this.getVeiculo().getCliente().getPontuacao().subtrairPontos(Servico.getPontos());
+			itemServico.setOrdemServico(null);
 		}
 	}
 	
+	// ESSE MÉTODO É PARA CALCULAR O TOTAL DO SERVIÇO CONSIDERANDO O DESCONTO
 	public double calcularServico() throws ExceptionLavacao {
 		if (itens.isEmpty()) {
 			throw new ExceptionLavacao("A lista de ordens está vazia, portanto não há valor!!");
 		}
 		else {
-			for(ItemOS item : itens) {
-				this.getVeiculo().getCliente().getPontuacao().somarPontos(Servico.getPontos());
-				total += item.getValorServico();
-				return total - (total * (desconto*0.01));
-			}
+			total -= (total * (desconto*0.01));
 		}
 		return total;
 	}
 	
+	public double valorDesconto() {
+		return (total * desconto)/100;
+	}
 }

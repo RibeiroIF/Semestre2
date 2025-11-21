@@ -1,4 +1,4 @@
-package ordens;
+package domain;
 
 public class ItemOS {
 

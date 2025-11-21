@@ -1,6 +1,4 @@
-package ordens;
-
-import veiculo.ECategoria;
+package domain;
 
 public class Servico {
 
@@ -9,15 +7,17 @@ public class Servico {
 	private double valor;
 	static int pontos;
 	private ECategoria categoria;
+	private ECategoriaServico servico;
 	
 	public Servico() {
 		super();
 	}
 
-	public Servico(int id, String descricao) {
+	public Servico(int id, String descricao, double valor) {
 		super();
 		this.id = id;
 		this.descricao = descricao;
+		this.valor = valor;
 	}
 
 	public int getId() {
@@ -40,28 +40,16 @@ public class Servico {
 		return valor;
 	}
 
-	public void setValor(ECategoria categoria) {
-		switch(this.categoria) {
-			case PEQUENO:
-				this.valor = 50;
-				break;
-			case MÉDIO:
-				this.valor = 70;
-				break;
-			case GRANDE:
-				this.valor = 90;
-				break;
-			case MOTO: 
-				this.valor = 60;
-				break;
-			case PADRÃO:
-				this.valor = 80;
-				break;
-		}
+	public void setValor() {
+		this.valor = categoria.getValor() * servico.getValor();
 	}
 
 	public ECategoria getCategoria() {
 		return categoria;
+	}
+	
+	public ECategoriaServico getCategoriaServico() {
+		return servico;
 	}
 
 	public static int getPontos() {

@@ -1,6 +1,4 @@
-package cliente;
-
-import veiculo.Veiculo;
+package domain;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -19,10 +17,10 @@ public abstract class Cliente implements IDados {
 		super();
 	}
 
-	public Cliente(int idCliente, String nomeCliente, String celular, String email, LocalDate dataCadastro) {
+	public Cliente(int id, String nome, String celular, String email, LocalDate dataCadastro) {
 		super();
-		this.id = idCliente;
-		this.nome = nomeCliente;
+		this.id = id;
+		this.nome = nome;
 		this.celular = celular;
 		this.email = email;
 		this.dataCadastro = dataCadastro;
@@ -50,20 +48,20 @@ public abstract class Cliente implements IDados {
 		veiculo.setCliente(null);
 	}
 	
-	public int getIdCliente() {
+	public int getId() {
 		return id;
 	}
 
-	public void setIdCliente(int idCliente) {
-		this.id = idCliente;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getNomeCliente() {
+	public String getNome() {
 		return nome;
 	}
 
-	public void setNomeCliente(String nomeCliente) {
-		this.nome = nomeCliente;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getCelular() {

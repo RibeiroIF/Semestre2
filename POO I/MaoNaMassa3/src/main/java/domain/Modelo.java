@@ -1,4 +1,4 @@
-package veiculo;
+package domain;
 
 public class Modelo {
 
@@ -10,10 +10,10 @@ public class Modelo {
 	
 	public Modelo() {}
 	
-	public Modelo(int idModelo, String descricaoModelo, Marca marca, ECategoria categoria, int potencia, ETipoCombustivel combustivel) {
+	public Modelo(int id, String descricao, Marca marca, ECategoria categoria, int potencia, ETipoCombustivel combustivel) {
 		super();
-		this.id = idModelo;
-		this.descricao = descricaoModelo;
+		this.id = id;
+		this.descricao = descricao;
 		this.marca = marca;
 		this.categoria = categoria;
 		this.motor = new Motor(potencia, combustivel);
@@ -40,20 +40,20 @@ public class Modelo {
 	}
 
 
-	public int getIdModelo() {
+	public int getId() {
 		return id;
 	}
 
-	public void setIdModelo(int idModelo) {
-		this.id = idModelo;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getDescricaoModelo() {
+	public String getDescricao() {
 		return descricao;
 	}
 
-	public void setDescricaoModelo(String descricaoModelo) {
-		this.descricao = descricaoModelo;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 

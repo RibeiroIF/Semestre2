@@ -1,7 +1,4 @@
-package veiculo;
-
-import cliente.Cliente;
-import cliente.IDados;
+package domain;
 
 public class Veiculo implements IDados {
 
@@ -36,12 +33,12 @@ public class Veiculo implements IDados {
 		this.cor = cor;
 	}
 
-	public int getIdVeiculo() {
+	public int getId() {
 		return id;
 	}
 
-	public void setIdVeiculo(int idVeiculo) {
-		this.id = idVeiculo;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getPlaca() {
@@ -52,12 +49,12 @@ public class Veiculo implements IDados {
 		this.placa = placa;
 	}
 
-	public String getObservacoesVeiculo() {
+	public String getObservacoes() {
 		return observacoes;
 	}
 
-	public void setObservacoesVeiculo(String observacoesVeiculo) {
-		this.observacoes = observacoesVeiculo;
+	public void setObservacoes(String observacoes) {
+		this.observacoes = observacoes;
 	}
 
 	public Modelo getModelo() {
@@ -80,8 +77,8 @@ public class Veiculo implements IDados {
 	public String getDados() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Placa..............: ").append(placa).append("\n");
-		sb.append("Modelo.............: ").append(modelo.getDescricaoModelo()).append("\n");
-		sb.append("Marca..............: ").append(modelo.getMarca().getNomeMarca()).append("\n");
+		sb.append("Modelo.............: ").append(modelo.getDescricao()).append("\n");
+		sb.append("Marca..............: ").append(modelo.getMarca().getNome()).append("\n");
 		sb.append("Categoria..........: ").append(modelo.getCategoria()).append("\n");
 		sb.append("Potência do motor..: ").append(modelo.getMotor().getPotencia());
 		return sb.toString();

@@ -1,4 +1,4 @@
-package veiculo;
+package domain;
 
 public enum ETipoCombustivel {
 

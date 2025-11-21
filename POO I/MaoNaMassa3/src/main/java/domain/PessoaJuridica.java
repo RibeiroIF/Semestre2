@@ -1,4 +1,4 @@
-package cliente;
+package domain;
 
 import java.time.LocalDate;
 
@@ -10,8 +10,8 @@ public class PessoaJuridica extends Cliente {
 		super();
 	}
 
-	public PessoaJuridica(int idCliente, String nomeCliente, String celular, String email, LocalDate dataCadastro, String cnpj, String inscricaoEstadual) {
-		super(idCliente, nomeCliente, celular, email, dataCadastro);
+	public PessoaJuridica(int id, String nome, String celular, String email, LocalDate dataCadastro, String cnpj, String inscricaoEstadual) {
+		super(id, nome, celular, email, dataCadastro);
 		this.cnpj = cnpj;
 		this.inscricaoEstadual = inscricaoEstadual;
 	}
