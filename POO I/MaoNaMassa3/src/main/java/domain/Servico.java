@@ -5,7 +5,7 @@ public class Servico {
 	private int id;
 	private String descricao;
 	private double valor;
-	static int pontos;
+	static int pontos = 20;
 	private ECategoria categoria;
 	private ECategoriaServico servico;
 	
