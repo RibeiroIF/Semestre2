@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Oregano:ital@0;1&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
+*{
+  margin: 0;
+  padding: 0;
+}
 
 html{
   height: 100%;
@@ -22,11 +26,10 @@ body{
 header{
   margin-bottom: auto;
   text-align: center;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   color: white;
   background-color: rgb(4, 79, 79);
   height: 80px;
+  padding-top: 20px;
 }
 
 nav{
@@ -97,6 +100,7 @@ main{
   border-width: 2px;
   border-color: black;
   border-radius: 10px;
+  padding: 30px;  
 }
 
 .principal ul li{
@@ -131,7 +135,5 @@ footer{
   background-color: cadetblue;
   text-align: center;
   color: white;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   font-weight: bold;
 }
